@@ -6,3 +6,11 @@
   %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+
+
+<% @contents.each do |content| %>
+<%= content.description %>
+<%= content.place %>
+<%= content.tag %>
+<%= cl_image_tag content.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>

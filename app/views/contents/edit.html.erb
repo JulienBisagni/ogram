@@ -1,0 +1,19 @@
+
+<%= simple_form_for(@content) do |f| %>
+  <%= f.input :description%>
+  <%= f.input :place %>
+  <%= f.input :tag %>
+  <%= f.input :photo, as: :file %>
+    <% if current_user %>
+      <%= f.association :user, :as => :hidden, :input_html => { :value => current_user.id }  %>
+    <% end %>
+  <%= f.submit 'upload' %>
+
+<% end %>
+
+
+
+
+<%= simple_form_for @content, :url => content_path(@content), :method => :delete do |f|%>
+  <%= f.submit "Destroy", class: "btn btn-primary" %>
+<% end %>

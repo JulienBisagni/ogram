@@ -19,7 +19,7 @@ class ContentsController < ApplicationController
   def create
     @content = Content.new(content_params)
     @content.save
-    redirect_to content_path(@content)
+    redirect_to contents_path(@content)
   end
 
   def new
@@ -32,17 +32,17 @@ class ContentsController < ApplicationController
 
   def update
     Content.find(params[:id]).update(content_params)
-    redirect_to content_path(@content)
+    redirect_to contents_path(@content)
   end
 
   def destroy
     Content.find(params[:id]).destroy
-    redirect_to content_path(@content)
+    redirect_to contents_path(@content)
   end
 
   private
 
   def content_params
-    params.require(:content).permit(:tag, :place, :description, :user_id)
+    params.require(:content).permit(:tag, :place, :description, :user_id, :photo)
   end
 end
