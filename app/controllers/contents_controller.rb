@@ -1,5 +1,5 @@
 class ContentsController < ApplicationController
-   def index
+  def index
     if params[:query].present?
       sql_query = " \
         description @@ :query \
@@ -9,6 +9,15 @@ class ContentsController < ApplicationController
       @contents = Content.where(sql_query, query: "%#{params[:query]}%")
     else
       @contents = Content.all
+    end
+
+    @contents = Content.all
+    @markers = @contents.map do |content|
+      {
+        lat: content.latitude,
+        lng: content.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { content: content })
+      }
     end
   end
 

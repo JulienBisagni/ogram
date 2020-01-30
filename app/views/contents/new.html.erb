@@ -1,6 +1,6 @@
 <%= simple_form_for(@content) do |f| %>
   <%= f.input :description%>
-  <%= f.input :place %>
+  <%= f.input :place, :id => 'content_place'%>
   <%= f.input :tag %>
   <%= f.input :photo, as: :file %>
     <% if current_user %>
