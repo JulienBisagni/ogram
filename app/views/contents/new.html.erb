@@ -1,0 +1,11 @@
+<%= simple_form_for(@content) do |f| %>
+  <%= f.input :description%>
+  <%= f.input :place, :id => 'content_place'%>
+  <%= f.input :tag %>
+  <%= f.input :photo, as: :file %>
+    <% if current_user %>
+      <%= f.association :user, :as => :hidden, :input_html => { :value => current_user.id }  %>
+    <% end %>
+  <%= f.submit 'upload' %>
+
+<% end %>
