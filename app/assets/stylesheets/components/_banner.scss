@@ -1,0 +1,44 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.banner {
+  background-size: cover;
+  background-position: right;
+  padding: 0;
+  height: 110vh;
+  display: flex;
+  align-items: center;
+  &__title{
+    margin: 0;
+    color: $white;
+    font-size: $main-title-font-size;
+    font-weight: bold;
+  }
+  &__text{
+    font-size: 20px;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  }
+  &.-search{
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 50vh;
+    justify-content: center;
+    border-radius: $border-radius;
+    color: $primary-color;
+    &.-search__title{
+      font-size: $main-title-font-size;
+    }
+  }
+  &.-show{
+    background-position: center;
+    height: 60vh;
+    margin-bottom: $gutter-size * 0.5;
+    .banner__title{
+      font-size: $big-title-font-size;
+    }
+    .banner__btn{
+      display: block;
+    }
+  }
+}

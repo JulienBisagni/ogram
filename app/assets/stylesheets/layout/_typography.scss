@@ -1,0 +1,30 @@
+@import "../abstracts/variables";
+
+/* Headings
+----------------------------------------------------------------------------------------------------*/
+$headings: (
+  main-title: 46,
+  title: 35,
+  sub-title: 27,
+  medium-title: 20,
+  small-title: 20
+);
+
+@each $heading-name, $heading-font-size in $headings {
+  .#{$heading-name} {
+    font-size: $heading-font-size + px;
+    line-height: $heading-line-height;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: bolder;
+}
+
+.secondary-color{
+  color: $secondary-color !important;
+}
+
+.soft-text{
+  color: $soft-text-color !important;
+}

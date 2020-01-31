@@ -1,0 +1,35 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.form{
+  &__title{
+    color: $text-color;
+  }
+  &__card{
+    border-radius: $border-radius;
+    background: $transparent-bg-color;
+    @include border-shadow;
+    @include padding-horizontal;
+    @include padding-vertical;
+  }
+}
+
+.experience_photo{
+  label{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    border: 1px dashed $border-color;
+    padding: $gutter-size * 0.5;
+    border-radius: $border-radius;
+    background: $primary-color;
+    &:hover{
+      opacity: 0.8;
+    }
+  }
+  #experience_photo{
+    display: none !important;
+  }
+}

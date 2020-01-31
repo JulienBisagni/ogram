@@ -1,0 +1,42 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+}
+
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-expand-sm{
+  justify-content: space-between;
+}
+
+.nav-item{
+  font-size: $navbar-font-size
+}
+
+.nav-link{
+  color: $text-color !important;
+}
+
+.nav-link:hover{
+  color: $soft-text-color !important;
+}
+
+.navbar{
+  @include border-shadow;
+  display: flex;
+  justify-content: space-between;
+  @include padding-horizontal($gutter-size * 2);
+  &__logo{
+    color: $secondary-color;
+    font-size: $logo-font-size;
+    &:hover{
+      text-decoration: none;
+      color: $secondary-color;
+    }
+  }
+}
