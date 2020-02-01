@@ -21,10 +21,10 @@ h1, h2, h3, h4, h5 {
   font-weight: bolder;
 }
 
-.secondary-color{
+.--font-secondary-color{
   color: $secondary-color !important;
 }
 
-.soft-text{
-  color: $soft-text-color !important;
+.--font-terciary-color{
+  color: $terciary-color !important;
 }

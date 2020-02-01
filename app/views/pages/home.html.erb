@@ -1,2 +1,32 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="content" id="1">
+  <%= image_tag("https://media.giphy.com/media/Lh5Y5Cv6wBYWI/giphy.gif", class:"content__img") %>
+  <div class="content__infos">
+    <div class="content__info">
+      <div class="content__info__author">
+        @the_good_movie - 1hour ago in London.
+      </div>
+      <div class="content__info__description">
+        <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, facilis.Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit.".truncate(300) %>
+      </div>
+    </div>
+    <div class="content__comments">
+      <div class="content__info --comment">
+        <div class="content__info__author">
+          @flo - 2min ago in Paris.
+        </div>
+        <p class="content__info__description --comment">
+          <%= "Great movie, I watched it last night with my mife, what a performance from J.Phoenix!".truncate(100) %>
+        </p>
+      </div>
+      <div class="content__info --comment">
+        <div class="content__info__author">
+          @jackyJ - 1min ago in Cuba.
+        </div>
+        <p class="content__info__description --comment">
+          <%= "Great movie, I watched it last night with my mifeGreat movie, I watched it last night with my mifeGreat movie, I watched it last night with my mifeGreat movie, I watched it last night with my mife".truncate(100) %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

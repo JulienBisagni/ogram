@@ -1,7 +1,10 @@
 <div class="container devise__container">
   <div class="row">
     <div class="col-xs-12 devise__block">
-      <h2 class="devise__logo">ogram</h2>
+      <div>
+        <h2 class="devise__logo">ogram</h2>
+        <h3 class="devise__title">wanna loose some time <span class="--font-secondary-color">swipping?</span></h3>
+      </div>
       <div class="devise__form">
         <div class="">
           <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -10,7 +13,7 @@
             <%= f.input :password, required: false, placeholder: "••••••" %>
             <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
           </div>
-          <div class="">
+          <div>
             <%= f.button :submit, "Log in", class: "btn --secondary --full devise__form__button" %>
           </div>
           <%= render "devise/shared/links" %>

@@ -10,18 +10,30 @@
     align-items: center;
     background-image:
     linear-gradient(black, black),
-    url("https://opendoodles.s3-us-west-1.amazonaws.com/sprinting.gif");
+    url("https://media0.giphy.com/media/l4FGpPki5v2Bcd6Ss/giphy.webp?cid=790b76111d6a14d6c7161145f1dee2423c25830135b06065&rid=giphy.webp");
     background-size: cover;
-    background-position: right;
-    background-position-y: -50px;
-    background-repeat: no-repeat;
+    background-position: center;
     background-blend-mode: saturation;
+    &.--password{
+      background-image:
+      linear-gradient(black, black),
+      url("https://media0.giphy.com/media/8m4R4pvViWtRzbloJ1/giphy.webp?cid=790b76111d6a14d6c7161145f1dee2423c25830135b06065&rid=giphy.webp");
+    }
+    &.--signup{
+      background-image:
+      linear-gradient(black, black),
+      url("https://media.giphy.com/media/3ohs7OgEhDwuJBiWXK/giphy.gif");
+    }
   }
   &__block{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: $primary-color;
     border-radius: $border-radius;
     padding: $gutter-size;
     @include border-shadow;
+    opacity: 0.95;
   }
   &__form{
     color: $secondary-color;
@@ -30,11 +42,20 @@
     }
   }
   &__logo{
-    @include typography($font-size: $big-title-font-size, $font-weight: bold, $color: $secondary-color);
+    @include typography($font-size: $big-title-font-size, $font-weight: bold, $color: $text-color);
     text-align: center;
+    margin-bottom: $gutter-size;
+  }
+  &__title{
+    @include typography($font-size: $base-font-size, $font-weight: 100, $color: $text-color);
+    text-align: center;
+    margin-bottom: $gutter-size;
   }
   &__links{
     color: $soft-text-color;
-
+    margin-top: $gutter-size * 0.5;
+    *{
+      margin-bottom: 4px;
+    }
   }
 }

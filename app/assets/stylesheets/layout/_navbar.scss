@@ -29,14 +29,34 @@
 .navbar{
   @include border-shadow;
   display: flex;
-  justify-content: space-between;
-  @include padding-horizontal($gutter-size * 2);
-  &__logo{
-    color: $secondary-color;
-    font-size: $logo-font-size;
-    &:hover{
-      text-decoration: none;
+  justify-content: space-around;
+  @include padding-horizontal($gutter-size);
+  @include padding-vertical($gutter-size * 0.4);
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  background: $primary-color;
+  color: $secondary-color;
+  height: 60px;
+  &.--bottom{
+    bottom: 0;
+  }
+  &.--top{
+    top: 0;
+    h3{
       color: $secondary-color;
+      margin-bottom: 0;
     }
+  }
+  &__icon{
+    @include typography($color: $text-color, $font-size: $title-font-size);
+    opacity: 0.9;
+    .fas{
+      margin: 0;
+    }
+  }
+  &__border{
+    height: $base-font-size;
+    border-right: 1px solid $soft-text-color;
   }
 }
