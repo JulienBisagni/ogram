@@ -40,7 +40,7 @@ $turquoise:                 #00ccbc;
 $green:                     #13B686;
 $white:                     #ffffff;
 $white-2:                   rgba(242, 242, 242, 0.95);
-$light-grey:                #d2d3d7;
+$light-grey:                rgba(238, 238, 238, 0.5);
 $grey:                      #6c757d;
 $dark-grey:                 #686e80;
 $black:                     #001835;
@@ -61,6 +61,7 @@ $invalid-color:             $red;
 $warning-color:             $gold;
 $border-color:              $grey;
 $disabled-color:            $light-grey;
+$container-color:            $light-grey;
 
 //Breakpoint
 $tablet-medium: 768px;

@@ -3,30 +3,31 @@
   <div class="content__infos">
     <div class="content__info">
       <div class="content__info__author">
-        @the_good_movie - 1hour ago in London.
+        Posted by @the_good_movie - 1hour ago in London.
       </div>
       <div class="content__info__description">
         <%= "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, facilis.Lorem ipsum dolor sit amet, consectetur adipisicing elit.
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.".truncate(300) %>
       </div>
+      <div class="content__info__labels">
+        <div class="content__info__label">Film</div>
+        <div class="content__info__label">Photography</div>
+        <div class="content__info__label">Phoenix</div>
+      </div>
     </div>
     <div class="content__comments">
-      <div class="content__info --comment">
-        <div class="content__info__author">
-          @flo - 2min ago in Paris.
+      <div class="content__comment">
+        <div class="content__comment__icon"><div><%= icon('fas', 'arrow-up') %></div>222</div>
+        <div>
+          <div class="content__info__author">
+            posted by @flo - 2min ago in Paris.
+          </div>
+          <p class="content__info__description">
+            <%= "Great movie, I watched it last night with my mife, what a performance from J.Phoenix!".truncate(100) %>
+          </p>
         </div>
-        <p class="content__info__description --comment">
-          <%= "Great movie, I watched it last night with my mife, what a performance from J.Phoenix!".truncate(100) %>
-        </p>
-      </div>
-      <div class="content__info --comment">
-        <div class="content__info__author">
-          @jackyJ - 1min ago in Cuba.
-        </div>
-        <p class="content__info__description --comment">
-          <%= "Great movie, I watched it last night with my mifeGreat movie, I watched it last night with my mifeGreat movie, I watched it last night with my mifeGreat movie, I watched it last night with my mife".truncate(100) %>
-        </p>
       </div>
     </div>
+    <div class="content__button"><a href="#" class="btn --secondary --full">oforum</a></div>
   </div>
 </div>
