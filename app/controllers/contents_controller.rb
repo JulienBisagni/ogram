@@ -57,6 +57,7 @@ class ContentsController < ApplicationController
     redirect_to contents_path(@content)
   end
 
+
   private
 
   def content_params
