@@ -5,6 +5,11 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { modal } from '../plugins/modal.js'
 
+import { slide} from '../plugins/slide';
+export {scroll} from '../plugins/scroll';
+
 initMapbox();
 initAutocomplete();
 modal();
+slide();
+scroll();

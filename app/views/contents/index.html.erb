@@ -8,13 +8,34 @@
 <% end %>
 
 
-<% @contents.each do |content| %>
-<%= content.description %>
-<%= content.place %>
-<%= content.tag %>
-<%= cl_image_tag content.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
 
+<ul id="slides">
+<% @contents.each_with_index do |content, i| %>
+  <li class ="slide <%= 'showing' if i == 0 %>" data-id= "<%= i %>">
+    <div class= "image-carousel" style= "background-image: url('<%= cl_image_path content.photo.key %>')">
+    </div>
+  </li>
+<% end %>
+</ul>
+
+
+
+
+<div id="slide-controls">
+  <span id="decline"> <i class= "fa fa-times-circle fa-2x"></i></span>
+  <span id="approve"> <i class= "fa fa-heart fa-2x"></i></span>
+</div>
+
+
+
+
+<section class="red">FIRST</section>
+<section class="green">SECOND</section>
+<section class="blue">THIRD</section>
+
+
+
+<!--
 
 <div
   id="map"
@@ -22,4 +43,4 @@
   height: 600px;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+></div> -->
