@@ -1,37 +1,22 @@
-<%= form_tag contents_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a content"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-
-
-<ul id="slides">
-<% @contents.each_with_index do |content, i| %>
-  <li class ="slide <%= 'showing' if i == 0 %>" data-id= "<%= i %>">
-    <div class= "image-carousel" style= "background-image: url('<%= cl_image_path content.photo.key %>')">
-    </div>
-  </li>
-<% end %>
-</ul>
 
 
 
 
-<div id="slide-controls">
-  <span id="decline"> <i class= "fa fa-times-circle fa-2x"></i></span>
-  <span id="approve"> <i class= "fa fa-heart fa-2x"></i></span>
+
+<div class="test-swipe">
+  <div class="red">1</div>
+  <div class="green">2</div>
+  <div class="blue">3</div>
+  <div class="red">4</div>
+  <div class="green">5</div>
+  <div class="blue">6</div>
+  <div class="red">7</div>
+  <div class="green">8</div>
+  <div class="blue">9</div>
+  <div class="red">10</div>
+  <div class="green">11</div>
+  <div class="blue">12</div>
 </div>
-
-
-
-
-<section class="red">FIRST</section>
-<section class="green">SECOND</section>
-<section class="blue">THIRD</section>
 
 
 
@@ -44,3 +29,45 @@
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div> -->
+
+<style>
+  .test-swipe {
+    height: 89vh;
+    overflow: hidden;
+  }
+
+  .test-swipe div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    transition: margin-top 0.3s ease;
+  }
+
+  /* .test-swipe div.scrolled {
+    margin-top: -70vh;
+    transition: margin-top 0.3s ease;
+  }*/
+</style>
+
+<script>
+  const testSwipe = document.querySelector(".test-swipe");
+  const posts = document.querySelectorAll(".test-swipe > div");
+  const firstPost = document.querySelector(".test-swipe > div:first-child");
+
+  posts.forEach((post) => {
+    const postHeight = post.offsetHeight;
+    post.addEventListener("click", (event) => {
+      console.log(postHeight);
+      console.log(firstPost);
+      console.log(firstPost.offsetHeight);
+      firstPost.style.marginTop = `-${postHeight}px`;
+      // firstPost.style.marginTop = "-30px";
+    });
+  });
+
+
+
+//touchmove pour le swipe tel
+</script>
