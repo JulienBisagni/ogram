@@ -1,29 +1,24 @@
 const modal = () => {
-  const openModalButtons = documenit.querySelectorAll('[data-modal-target]');
-  const closeModalButtons = document.querySelectorAll('[data-close-modal]');
+  const openButton = document.querySelector('[data-modal-target]');
+  const closeButton = document.querySelector('[data-close-modal]');
 
-  openModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      const modal = document.querySelector(button.dataset.modalTarget);
-      openModal(modal);
-    });
-  }
+  openButton.addEventListener('click', () => {
+    const modal = document.querySelector(openButton.dataset.modalTarget);
+    openModal(modal);
+  });
+  closeButton.addEventListener('click', () => {
+    const modal = document.querySelector(openButton.dataset.modalTarget);
+    closeModal(modal);
+  });
+}
 
-  closeModalButtons.forEach(button=> {
-    button.addEventListener('click', () => {
-      const modal = button.closest('modal');
-      closeModal(modal);
-    });
-  }
+const openModal = (modal) => {
+  console.log(modal);
+  modal.classList.add('active');
+}
 
-  function openModal(modal) {
-    if (modal == null) return
-    modal.classList.add('active');
-  }
-  function closeModal(modal) {
-    if (modal == null) returnli
-    modal.classList.remove('active');
-  }
-};
-
+const closeModal = (modal) => {
+  console.log(modal);
+  modal.classList.remove('active');
+}
 export { modal };

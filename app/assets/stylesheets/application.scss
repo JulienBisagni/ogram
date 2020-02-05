@@ -18,27 +18,3 @@
 @import "components/index";
 @import "pages/index";
 @import "layout/index";
-
-body, body * {
-  margin: 0;
-  padding: 0;
-  color: lightgrey;
-  font-size: 40px;
-}
-
-section {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.red {
-  background-color: red;
-}
-.green {
-  background-color: green;
-}
-.blue {
- background-color: blue;
-}
