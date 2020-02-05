@@ -10,20 +10,26 @@
   z-index: 10;
   background: $white;
   display: block;
+  padding: $gutter-size;
   &.active{
-  opacity: 0.95;
-  transform: scale(1);
+    opacity: 0.95;
+    transform: scale(1);
   }
   &__header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    vertical-align: middle;
+    margin-bottom: $gutter-size * 0.5;
     &__close{
       border: none;
       outline: none;
       background: none;
       cursor: pointer;
     }
+  }
+  &__comment{
+    border-bottom: 1px solid $border-color;
   }
 }
 
