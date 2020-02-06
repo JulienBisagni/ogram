@@ -6,10 +6,12 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { modal } from '../plugins/modal.js'
 
 import { slide} from '../plugins/slide';
-export {scroll} from '../plugins/scroll';
+import {swipePost} from '../plugins/swipePost';
+
+window.$ = $;
 
 initMapbox();
 initAutocomplete();
 modal();
 slide();
-scroll();
+swipePost();
