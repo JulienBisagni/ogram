@@ -1,0 +1,73 @@
+
+
+
+
+
+<div class="test-swipe">
+  <div class="red">1</div>
+  <div class="green">2</div>
+  <div class="blue">3</div>
+  <div class="red">4</div>
+  <div class="green">5</div>
+  <div class="blue">6</div>
+  <div class="red">7</div>
+  <div class="green">8</div>
+  <div class="blue">9</div>
+  <div class="red">10</div>
+  <div class="green">11</div>
+  <div class="blue">12</div>
+</div>
+
+
+
+<!--
+
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div> -->
+
+<style>
+  .test-swipe {
+    height: 89vh;
+    overflow: hidden;
+  }
+
+  .test-swipe div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+    transition: margin-top 0.3s ease;
+  }
+
+  /* .test-swipe div.scrolled {
+    margin-top: -70vh;
+    transition: margin-top 0.3s ease;
+  }*/
+</style>
+
+<script>
+  const testSwipe = document.querySelector(".test-swipe");
+  const posts = document.querySelectorAll(".test-swipe > div");
+  const firstPost = document.querySelector(".test-swipe > div:first-child");
+
+  posts.forEach((post) => {
+    const postHeight = post.offsetHeight;
+    post.addEventListener("click", (event) => {
+      console.log(postHeight);
+      console.log(firstPost);
+      console.log(firstPost.offsetHeight);
+      firstPost.style.marginTop = `-${postHeight}px`;
+      // firstPost.style.marginTop = "-30px";
+    });
+  });
+
+
+
+//touchmove pour le swipe tel
+</script>

@@ -2,6 +2,7 @@ class ContentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
+    @initial_contents = Content.all
     if params[:query].present?
       sql_query = " \
         description @@ :query \
@@ -20,7 +21,6 @@ class ContentsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { content: content })
       }
     end
-
   end
 
   def show
