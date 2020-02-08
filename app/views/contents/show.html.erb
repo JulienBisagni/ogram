@@ -1,6 +1,19 @@
 
 <%= cl_image_tag @content.photo.key, height: 300, width: 400, crop: :fill %>
 
+<div id= "comments">
+<% if @comments.blank? %>
+     Leave your comment
+  <% else %>
+  <% @comments.each do |comment| %>
+  <%= render 'comments/show', comment: comment %>
+  <% end %>
+<% end %>
+</div>
+
+
+<%= render 'comments/form', content: @content, comment: @comment %>
+
 
 
 
