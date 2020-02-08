@@ -1,4 +1,4 @@
-<%= simple_form_for([ content, comment ], remote: true, authentic_token: true) do |form| %>
+<%= simple_form_for([ content, comment ], remote: true) do |form| %>
   <%= form.input :description %>
   <%= form.button :submit %>
 <% end %>
