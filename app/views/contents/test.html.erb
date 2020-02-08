@@ -52,9 +52,9 @@
 </style>
 
 <script>
-  const testSwipe = document.querySelector(".test-swipe");
-  const posts = document.querySelectorAll(".test-swipe > div");
-  const firstPost = document.querySelector(".test-swipe > div:first-child");
+  const main = document.querySelector(".main");
+  const posts = document.querySelectorAll(".main > .content");
+  const firstPost = document.querySelector(".test-swipe > .content:first-child");
 
   posts.forEach((post) => {
     const postHeight = post.offsetHeight;
@@ -63,7 +63,6 @@
       console.log(firstPost);
       console.log(firstPost.offsetHeight);
       firstPost.style.marginTop = `-${postHeight}px`;
-      // firstPost.style.marginTop = "-30px";
     });
   });
 
