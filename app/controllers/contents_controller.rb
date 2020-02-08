@@ -20,12 +20,15 @@ class ContentsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { content: content })
       }
     end
-
   end
 
   def show
     @content = Content.find(params[:id])
     authorize @content
+    @comment = Comment.new
+    @comments = @content.comments.select do |comment|
+      comment.persisted?
+    end
   end
 
   def create

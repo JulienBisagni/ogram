@@ -1,10 +1,14 @@
 
+<% @contents.each do |content| %>
+  <div class= "image-carousel" style= "background-image: url('<%= cl_image_path content.photo.key %>')">
+  </div>
+<% end %>
 
 
 
 
 <div class="test-swipe">
-  <div class="red">1</div>
+  <!-- <div class="red">1</div>
   <div class="green">2</div>
   <div class="blue">3</div>
   <div class="red">4</div>
@@ -15,7 +19,7 @@
   <div class="blue">9</div>
   <div class="red">10</div>
   <div class="green">11</div>
-  <div class="blue">12</div>
+  <div class="blue">12</div> -->
 </div>
 
 
