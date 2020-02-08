@@ -9,6 +9,7 @@ class UserViewsController < ApplicationController
       format.js
     end
   end
+
   private
   def user_view_params
     params.require(:user_view).permit(:content_id)
