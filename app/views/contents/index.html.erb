@@ -1,9 +1,10 @@
 <div class="main">
   <% @initial_contents.each do |content| %>
-    <div class="content">
+    <div class="content" id=<%= content.id %>>
       <%=content.description %>
-      <%= simple_form_for ([ content, user_view ], remote: true), url: user_views_path, :method => :post do |f| %>
-        <%= f.button :submit, 'Create a View'%>
+      <%= simple_form_for @user_view do |f| %>
+        <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
+        <%= f.submit "Create user view" %>
       <% end %>
     </div>
   <% end %>
