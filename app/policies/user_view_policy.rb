@@ -7,4 +7,7 @@ class UserViewPolicy < ApplicationPolicy
   def create?
     return true
   end
+  def save?
+    return true
+  end
 end
