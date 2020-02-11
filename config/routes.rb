@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'user_views/create'
   devise_for :users
   root to: 'pages#home'
   resources :users
-  resources :user_views, only: :create
+  resources :user_views, only: [:create] do
+    patch "save", on: :collection
+  end
   resources :contents do
     resources :comments, only: :create
   end

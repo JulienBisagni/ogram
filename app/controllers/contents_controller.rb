@@ -1,9 +1,8 @@
 class ContentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
-
   def index
     @user_view = UserView.new
-    @initial_contents = Content.all
+    @contents = Content.all
     if params[:query].present?
       sql_query = " \
         description @@ :query \

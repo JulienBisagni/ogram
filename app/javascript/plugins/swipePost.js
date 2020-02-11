@@ -5,34 +5,35 @@ const swipePost = () => {
 
   $(function() {
     $(".main > div").each(function() {
-      var postHeight = $(this).outerHeight();
-      var postIndex = $(this).index() +1;
-      var marginHeight = postHeight * postIndex;
-      var downIndex = $(this).index() -1 ;
-      var downHeight = postHeight * downIndex;
+      const postHeight = $(this).outerHeight();
+      const postIndex = $(this).index() +1;
+      const marginHeight = postHeight * postIndex;
+      const downIndex = $(this).index() -1 ;
+      const downHeight = postHeight * downIndex;
       $(this).swipe( {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+          const btnView = $(this).find('.btnView');
+          const btnSave = $(this).find('.btnSave');
           if (direction == "up") {
             $(".main > div:first-child").css("margin-top", `-${marginHeight}px`);
-            const btnPost = $(this).find('.btn');
-            btnPost.click();
+            btnView.click();
           };
-            if (direction == "down") {
-            $(".main > div:first-child").css("margin-top", `-${downHeight}px`);
+          if (direction == "down") {
+          $(".main > div:first-child").css("margin-top", `-${downHeight}px`);
           };
           if (direction == "left") {
-            $(".main > div:first-child").css("margin-top", `-${marginHeight}px`);
+            btnView.click();
+            btnSave.click();
           };
           if (direction == "right") {
             $(".main > div:first-child").css("margin-top", `-${marginHeight}px`);
+            btnView.click();
           };
         },
          threshold:0
       });
     })
-
   });
-
 };
 
 export { swipePost };
