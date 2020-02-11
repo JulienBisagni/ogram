@@ -14,6 +14,7 @@ const swipePost = () => {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
           const btnView = $(this).find('.btnView');
           const btnSave = $(this).find('.btnSave');
+          const btnDownvote = $(this).find('.btnDownvote');
           if (direction == "up") {
             $(".main > div:first-child").css("margin-top", `-${marginHeight}px`);
             btnView.click();
@@ -23,11 +24,12 @@ const swipePost = () => {
           };
           if (direction == "left") {
             btnView.click();
-            btnSave.click();
+            btnDownvote.click();
           };
           if (direction == "right") {
             $(".main > div:first-child").css("margin-top", `-${marginHeight}px`);
             btnView.click();
+            btnSave.click();
           };
         },
          threshold:0

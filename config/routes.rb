@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users
   resources :user_views, only: [:create] do
     patch "save", on: :collection
+    patch "downvote", on: :collection
   end
   resources :contents do
     resources :comments, only: :create
