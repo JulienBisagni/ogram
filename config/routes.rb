@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :users
   resources :user_views, only: [:create] do
-    patch "save", on: :collection # => "user_views/save"
+    patch "save", on: :collection
   end
   resources :contents do
     resources :comments, only: :create
