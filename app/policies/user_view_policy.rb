@@ -10,4 +10,7 @@ class UserViewPolicy < ApplicationPolicy
   def save?
     return true
   end
+  def downvote?
+    return true
+  end
 end
