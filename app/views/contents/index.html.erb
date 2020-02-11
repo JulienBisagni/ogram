@@ -2,11 +2,11 @@
   <% @contents.each do |content| %>
     <div class="content" id="content-<%= content.id %>">
       <div class="content__description"><%=content.description %></div>
-      <%= simple_form_for @user_view, url: user_views_path, :method => :post, remote: true do |f| %>
+      <%= simple_form_for @user_view, remote: true do |f| %>
         <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
         <%= f.submit "Create user view", class: "btnView" %>
       <% end %>
-      <%= simple_form_for @user_view, url: user_views_save_path, :method => :patch, remote: true do |f| %>
+      <%= simple_form_for @user_view, url: save_user_views_path, method: :patch, remote: true do |f| %>
         <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
         <%= f.submit "Save content", class: "btnSave" %>
       <% end %>
