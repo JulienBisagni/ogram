@@ -1,40 +1,41 @@
 const swipePost = () => {
-  const testSwipe = document.querySelector(".test-swipe");
-  const posts = document.querySelectorAll(".test-swipe > div");
-  const firstPost = document.querySelector(".test-swipe > div:first-child");
+  const testSwipe = document.querySelector(".main");
+  const posts = document.querySelectorAll(".main > div");
+  const firstPost = document.querySelector(".main > div:first-child");
 
   $(function() {
-    //Enable swiping...
-    $(".test-swipe > div").each(function() {
-      var postHeight = $(this).outerHeight();
-      var postIndex = $(this).index() +1;
-      var marginHeight = postHeight * postIndex;
-      var downIndex = $(this).index() -1 ;
-      var downHeight = postHeight * downIndex;
-      console.log(marginHeight);
+    $(".main > div").each(function() {
+      const postHeight = $(this).outerHeight();
+      const postIndex = $(this).index() +1;
+      const marginHeight = postHeight * postIndex;
+      const downIndex = $(this).index() -1 ;
+      const downHeight = postHeight * downIndex;
       $(this).swipe( {
-        //Generic swipe handler for all directions
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+          const btnView = $(this).find('.btnView');
+          const btnSave = $(this).find('.btnSave');
+          const btnDownvote = $(this).find('.btnDownvote');
           if (direction == "up") {
-            $(".test-swipe > div:first-child").css("margin-top", `-${marginHeight}px`);
+            $(".main > div:first-child").css("margin-top", `-${marginHeight}px`);
+            btnView.click();
           };
-            if (direction == "down") {
-            $(".test-swipe > div:first-child").css("margin-top", `-${downHeight}px`);
+          if (direction == "down") {
+          $(".main > div:first-child").css("margin-top", `-${downHeight}px`);
           };
           if (direction == "left") {
-            $(".test-swipe > div:first-child").css("margin-top", `-${marginHeight}px`);
+            btnView.click();
+            btnDownvote.click();
           };
           if (direction == "right") {
-            $(".test-swipe > div:first-child").css("margin-top", `-${marginHeight}px`);
+            $(".main > div:first-child").css("margin-top", `-${marginHeight}px`);
+            btnView.click();
+            btnSave.click();
           };
         },
-        //Default is 75px, set to 0 for demo so any distance triggers swipe
          threshold:0
       });
     })
-
   });
-
 };
 
 export { swipePost };
