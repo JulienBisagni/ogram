@@ -39,9 +39,11 @@ ActiveRecord::Schema.define(version: 2020_02_08_103402) do
   create_table "comments", force: :cascade do |t|
     t.text "description"
     t.bigint "content_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["content_id"], name: "index_comments_on_content_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "contents", force: :cascade do |t|
@@ -68,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_103402) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "name"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -82,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_103402) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "contents"
+  add_foreign_key "comments", "users"
   add_foreign_key "contents", "users"
   add_foreign_key "user_views", "contents"
   add_foreign_key "user_views", "users"

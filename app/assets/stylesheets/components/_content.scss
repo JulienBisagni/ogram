@@ -21,6 +21,10 @@
     height: 350px;
     @include margin-horizontal($gutter-size * 0.33);
   }
+  &__description{
+    @include typography($font-size: $small-font-size);
+    margin-bottom: $gutter-size * 0.33;
+  }
   &__place{
     @include typography($font-size: $small-font-size, $color: $soft-text-color);
   }
