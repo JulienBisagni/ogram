@@ -1,10 +1,9 @@
 const swipePost = () => {
   const testSwipe = document.querySelector(".main");
-  const posts = document.querySelectorAll(".main > div");
-  const firstPost = document.querySelector(".main > div:first-child");
-
+  const posts = document.querySelectorAll(".main > .content");
+  const firstPost = document.querySelector(".main > .content:first-child");
   $(function() {
-    $(".main > div").each(function() {
+    $(".main > .content").each(function() {
       const postHeight = $(this).outerHeight();
       const postIndex = $(this).index() +1;
       const marginHeight = postHeight * postIndex;
@@ -20,9 +19,10 @@ const swipePost = () => {
             btnView.click();
           };
           if (direction == "down") {
-          $(".main > div:first-child").css("margin-top", `-${downHeight}px`);
+            $(".main > div:first-child").css("margin-top", `-${downHeight}px`);
           };
           if (direction == "left") {
+            $(".main > div:first-child").css("margin-top", `-${marginHeight}px`);
             btnView.click();
             btnDownvote.click();
           };

@@ -1,6 +1,7 @@
-<% @contents.each do |content| %>
+<div class="main">
+  <% @contents.each do |content| %>
   <div class="content">
-    <%= cl_image_tag content.photo.key %>
+    <%= cl_image_tag content.photo.key, class: "content__img" %>
     <div class="content__infos">
       <div class="content__info__author">
         Posted by <%= content.user.email %>
@@ -13,9 +14,12 @@
         <div class="content__info__label">Photography</div>
         <div class="content__info__label">Opost</div>
       </div>
-      <div class="content__comments">
+      <div class="content__comments" data-modal-target="#modal">
         <div class="content__comment">
-          <div class="content__comment__icon"><div><%= icon('fas', 'arrow-up') %></div><%= content.comments.count %></div>
+          <div class="content__comment__icon">
+            <div><%= icon('fas', 'arrow-up') %></div>
+            <%= content.comments.count %>
+          </div>
           <div>
             <div class="content__info__author">
               posted by @flo - 2min ago in Paris.
@@ -26,19 +30,31 @@
           </div>
         </div>
       </div>
-      <button data-modal-target="#modal" class="content__button btn --secondary --full">oforum</button>
-      <%= simple_form_for @user_view, remote: true do |f| %>
-        <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
-        <%= f.submit "Create user view", class: "btnView" %>
-      <% end %>
-      <%= simple_form_for @user_view, url: save_user_views_path, method: :patch, remote: true do |f| %>
-        <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
-        <%= f.submit "Save content", class: "btnSave" %>
-      <% end %>
-      <%= simple_form_for @user_view, url: downvote_user_views_path, method: :patch, remote: true do |f| %>
-        <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
-        <%= f.submit "Downvote content", class: "btnDownvote" %>
-      <% end %>
+      <div class="modal" id="modal">
+        <div class="modal__header">
+          <div class="modal__header__title">Comments</div>
+          <button data-close-modal="#closeModal"  class="modal__header__close">&times;</button>
+        </div>
+        <div class="modal__body">
+          <div class="content__comment modal__comment">
+          </div>
+        </div>
+      </div>
+      <div class="content__buttons">
+        <%= simple_form_for @user_view, remote: true do |f| %>
+          <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
+          <%= f.submit "Create user view", class: "btnView" %>
+        <% end %>
+        <%= simple_form_for @user_view, url: save_user_views_path, method: :patch, remote: true do |f| %>
+          <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
+          <%= f.submit "Save content", class: "btnSave" %>
+        <% end %>
+        <%= simple_form_for @user_view, url: downvote_user_views_path, method: :patch, remote: true do |f| %>
+          <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
+          <%= f.submit "Downvote content", class: "btnDownvote" %>
+        <% end %>
+      </div>
     </div>
   </div>
-<% end %>
+  <% end %>
+</div>

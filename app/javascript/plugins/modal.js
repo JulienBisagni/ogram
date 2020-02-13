@@ -1,24 +1,25 @@
 const modal = () => {
-  const openButton = document.querySelector('[data-modal-target]');
-  const closeButton = document.querySelector('[data-close-modal]');
-
-  openButton.addEventListener('click', () => {
-    const modal = document.querySelector(openButton.dataset.modalTarget);
-    openModal(modal);
+  const openModalButtons = document.querySelectorAll('[data-modal-target]');
+  const closeModalButtons = document.querySelectorAll('[data-close-modal]');
+  openModalButtons.forEach(button => {
+    button.addEventListener('touchstart', () => {
+      const modal = document.querySelector(button.dataset.modalTarget);
+      openModal(modal);
+    });
   });
-  closeButton.addEventListener('click', () => {
-    const modal = document.querySelector(openButton.dataset.modalTarget);
-    closeModal(modal);
+  closeModalButtons.forEach(button => {
+    button.addEventListener('touchstart', () => {
+      const modal = button.closest('.modal');
+      closeModal(modal);
+    });
   });
 }
 
 const openModal = (modal) => {
-  console.log(modal);
   modal.classList.add('active');
 }
 
 const closeModal = (modal) => {
-  console.log(modal);
   modal.classList.remove('active');
 }
 export { modal };

@@ -4,21 +4,24 @@
 .content{
   max-width: 100%;
   border: none;
-  margin-top: 60px;
+  position: absolute;
+  top: 60px;
   height: calc(100vh - 120px);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  justify-content: flex-start;
+  vertical-align: top;
   &__img{
     object-fit: cover;
     width: 100%;
-    height: 350px;
+    height: 50vh;
     &:hover{
       opacity: $hover-opacity;
     }
   }
   &__infos{
-    height: 350px;
+    height: 30vh;
     @include margin-horizontal($gutter-size * 0.33);
   }
   &__description{
@@ -86,6 +89,8 @@
       margin-top: 2px;
     }
   }
-  &__button{
+  &__buttons{
+    display: none;
+    transform: scale(0);
   }
 }
