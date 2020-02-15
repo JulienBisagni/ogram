@@ -34,9 +34,12 @@ class ContentsController < ApplicationController
 
   def create
     @content = Content.new(content_params)
-    @content.save
     authorize @content
-    redirect_to contents_path(@content)
+    if @content.save
+      redirect_to contents_path
+    else
+      render :new
+    end
   end
 
   def new
@@ -65,6 +68,6 @@ class ContentsController < ApplicationController
   private
 
   def content_params
-    params.require(:content).permit(:tag, :place, :description, :user_id, :photo)
+    params.require(:content).permit(:tag, :place, :description, :user_id, :file)
   end
 end
