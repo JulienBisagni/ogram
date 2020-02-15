@@ -1,62 +1,51 @@
 <div class="main">
   <% @contents.each_with_index do |content, index| %>
-  <div class="content" id="<%= index %>">
-    <%= cl_image_tag content.photo.key, class: "content__img" %>
-    <div class="content__form" >
-      <%= render 'comments/form', content: content, comment: @comment %>
-    </div>
-    <div class="content__buttons">
-      <%= simple_form_for @user_view, remote: true do |f| %>
-        <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
-        <%= f.submit "Create user view", class: "btnView" %>
-      <% end %>
-      <%= simple_form_for @user_view, url: save_user_views_path, method: :patch, remote: true do |f| %>
-        <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
-        <%= f.submit "Save content", class: "btnSave" %>
-      <% end %>
-      <%= simple_form_for @user_view, url: downvote_user_views_path, method: :patch, remote: true do |f| %>
-        <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
-        <%= f.submit "Downvote content", class: "btnDownvote" %>
-      <% end %>
-    </div>
-    <button class="btn btn-secondary" data-modal-target="#modal" id="<%= index %>">OKOK</button>
-  </div>
-  <div class="modal" id="modal-<%= index %>">
-    <div class="modal__header">
-      <div class="modal__header__title">Comments</div>
-      <button data-close-modal="#closeModal"  class="modal__header__close">&times;</button>
-    </div>
-    <div class="modal__body"
-    <div class="content__infos">
-      <div class="content__post__author">
-        Posted by <%= content.user.email %>
+    <div class="content" id="<%= index %>">
+      <div>
+        <% if content.file.content_type.include?("image") %>
+            <%= cl_image_tag content.file.key, class: "content__img" %>
+        <% else %>
+            <%= cl_video_tag content.file.key, controls:true, class: "content__img" %>
+        <% end %>
       </div>
-      <div class="content__description">
-        <%= content.description %>
+      <div class="content__form" >
+        <%= render 'comments/form', content: content, comment: @comment %>
       </div>
-      <div class="content__info__labels">
-        <div class="content__info__label">Film</div>
-        <div class="content__info__label">Photography</div>
-        <div class="content__info__label">Opost</div>
+      <div class="content__buttons">
+        <%= simple_form_for @user_view, remote: true do |f| %>
+          <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
+          <%= f.submit "Create user view", class: "btnView" %>
+        <% end %>
+        <%= simple_form_for @user_view, url: save_user_views_path, method: :patch, remote: true do |f| %>
+          <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
+          <%= f.submit "Save content", class: "btnSave" %>
+        <% end %>
+        <%= simple_form_for @user_view, url: downvote_user_views_path, method: :patch, remote: true do |f| %>
+          <%= f.input :content_id, input_html: { value: content.id }, as: :hidden %>
+          <%= f.submit "Downvote content", class: "btnDownvote" %>
+        <% end %>
       </div>
-      <div class="content__comments" >
-        <div class="content__comment">
-          <div class="content__comment__icon">
-            <div><%= icon('fas', 'arrow-up') %></div>
-            <%= content.comments.count %>
+      <button class="btn btn-secondary" data-modal-target="#modal" id="<%= index %>">OKOK</button>
+      <div class="modal" id="modal-<%= index %>">
+        <div class="modal__header">
+          <div class="modal__header__title">Comments</div>
+          <button data-close-modal="#closeModal"  class="modal__header__close">&times;</button>
+        </div>
+        <div class="modal__body">
+          <div class="content__post__author">
+            Posted by <%= content.user.email %>
           </div>
-          <div>
-            <div class="content__info__author">
-              posted by @flo - 2min ago in Paris.
-            </div>
-            <p class="content__description">
-              <%= "Great movie, I watched it last night with my mife, what a performance from J.Phoenix!"%>
-            </p>
+          <div class="content__post__description">
+            <%= content.description %>
+          </div>
+          <div class="content__post__author">
+            posted by @flo - 2min ago in Paris.
+          </div>
+          <div class="content__comment__description">
+            "Great movie, I watched it last night with my mife, what a performance from J.Phoenix!"
           </div>
         </div>
       </div>
     </div>
-  </div>
-  </div>
   <% end %>
 </div>
