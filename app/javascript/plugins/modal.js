@@ -3,7 +3,7 @@ const modal = () => {
   const closeModalButtons = document.querySelectorAll('[data-close-modal]');
   openModalButtons.forEach(button => {
     button.addEventListener('touchstart', () => {
-      const modal = document.querySelector(button.dataset.modalTarget);
+      const modal = document.getElementById(`modal-${button.id}`);
       openModal(modal);
     });
   });

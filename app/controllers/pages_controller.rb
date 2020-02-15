@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   def home
     @user_view = UserView.new
     @contents = Content.all
-    @comment = Comment.last
+    @comment = Comment.new
+    @last_comment = Comment.last
   end
 end

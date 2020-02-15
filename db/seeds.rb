@@ -27,6 +27,6 @@ content_list = [
 content_list.each do |user, description, file |
   content = Content.new( user: user, description: description)
   media = File.open(file)
-  content.photo.attach(io: media, filename:'nes.png', content_type: 'image/jpg')
+  content.photo.attach(io: media)
   content.save!
 end

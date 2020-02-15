@@ -1,21 +1,24 @@
 <% if !request.params[:controller].include?("devise") %>
-  <div class="navbar navbar-light --bottom">
-    <% if user_signed_in? %>
-      <%= link_to destroy_user_session_path, method: :delete, class: "navbar__icon" do %>
-        <%= icon('fas', 'door-closed') %>
+  <div class="navbar">
+    <%= link_to root_path, class: "navbar__logo" do %>
+        ogram
+    <% end %>
+    <div class="navbar__icons__icons">
+      <% if user_signed_in? %>
+        <%= link_to destroy_user_session_path, method: :delete, class: "navbar__icons__icon" do %>
+          <%= icon('fas', 'door-closed') %>
+        <% end %>
+      <% else %>
+        <%= link_to new_user_session_path, class: "navbar__icons__icon" do %>
+          <%= icon('fas', 'door-open') %>
+        <% end %>
       <% end %>
-    <% else %>
-      <%= link_to new_user_session_path, class: "navbar__icon" do %>
-        <%= icon('fas', 'door-open') %>
+      <%= link_to root_path, class: "navbar__icons__icon" do %>
+        <%= icon('fas', 'plus-square') %>
       <% end %>
-    <% end %>
-    <div class="navbar__border"></div>
-    <%= link_to root_path, class: "navbar__icon" do %>
-      <%= icon('fas', 'plus-square') %>
-    <% end %>
-    <div class="navbar__border"></div>
-    <%= link_to root_path, class: "navbar__icon" do %>
-      <%= icon('fas', 'search') %>
-    <% end %>
+      <%= link_to root_path, class: "navbar__icons__icon" do %>
+        <%= icon('fas', 'search') %>
+      <% end %>
+    </div>
   </div>
 <% end %>
