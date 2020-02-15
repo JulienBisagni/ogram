@@ -7,17 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 content_list = [
   [
-    User.first,
+    User.last,
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "app/assets/images/contents/photo1.jpg"
   ],
   [
-    User.first,
+    User.last,
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "app/assets/images/contents/photo2.jpg"
   ],
   [
-    User.first,
+    User.last,
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "app/assets/images/contents/photo3.jpg"
   ],
@@ -27,6 +27,6 @@ content_list = [
 content_list.each do |user, description, file |
   content = Content.new( user: user, description: description)
   media = File.open(file)
-  content.photo.attach(io: media)
+  content.file.attach(io: media, filename: 'nes.png')
   content.save!
 end
