@@ -1,5 +1,9 @@
-
-<%= cl_image_tag @content.photo.key, height: 300, width: 400, crop: :fill %>
+<% if @content.file.content_type.include?("image") %>
+<%= cl_image_tag @content.file.key %>
+<% else %>
+<%= cl_video_tag @content.file.key,  transformation: [
+    height:360, width:480, crop:"pad"], controls:true %>
+<% end %>
 
 <div id= "comments">
 <% if @comments.blank? %>
@@ -13,6 +17,7 @@
 
 
 <%= render 'comments/form', content: @content, comment: @comment %>
+
 
 
 

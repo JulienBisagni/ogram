@@ -1,7 +1,7 @@
 class Content < ApplicationRecord
   has_many :comments, dependent: :destroy
   belongs_to :user
-  has_one_attached :photo
+  has_one_attached :file
   geocoded_by :place
   has_many :user_views
 
