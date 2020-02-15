@@ -1,0 +1,100 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.content{
+  max-width: 100%;
+  border: none;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  vertical-align: top;
+  position: fixed;
+  flex-grow: 1;
+  &__img{
+    object-fit: cover;
+    width: 100%;
+    height: 50vh;
+  }
+  &__infos{
+    background: $primary-color;
+    overflow: scroll;
+    @include margin-horizontal($gutter-size * 0.33);
+  }
+  &__post{
+    &__author{
+      width: 100%;
+      @include typography($font-size: $small-font-size, $color: $soft-text-color);
+    }
+  }
+  &__description{
+    @include typography($font-size: $small-font-size);
+    margin-bottom: $gutter-size * 0.33;
+  }
+  &__place{
+    @include typography($font-size: $small-font-size, $color: $soft-text-color);
+  }
+  &__info{
+    border-radius: $border-radius;
+    padding: $gutter-size * 0.5;
+    &__author{
+      width: 100%;
+      @include typography($font-size: $small-font-size, $color: $soft-text-color);
+    }
+    &__description{
+      @include typography($font-size: $small-font-size);
+      margin-bottom: $gutter-size * 0.33;
+    }
+    &__labels{
+      display: flex;
+    }
+    &__label{
+      @include padding-horizontal($gutter-size * 0.2);
+      @include padding-vertical($gutter-size * 0.1)
+      border-radius: $border-radius;
+      margin-bottom: $gutter-size * 0.33;
+      margin-right: $gutter-size * 0.2;
+      background: $container-color;
+      @include border-shadow($x:0, $y:0, $z:3px, $color: rgba(0,0,0,0.2));
+      width: fit-content;
+    }
+    &__bar{
+      margin-bottom: $gutter-size * 0.33;
+      color: $soft-text-color;
+      &__item{
+        margin-right: $gutter-size * 0.33;
+      }
+      .fas{
+        margin-right: $gutter-size * 0.1;
+      }
+    }
+    p{
+      margin-bottom: 0;
+    }
+  }
+  &__comments{
+    margin-right: $gutter-size * 0.5;
+    margin-left: $gutter-size * 0.5;
+  }
+  &__comment{
+    padding: $gutter-size * 0.5;
+    padding: 0px;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: $gutter-size;
+    &__icon{
+      margin-right: $gutter-size * 0.33;
+      text-align: center;
+      color: $soft-text-color;
+    }
+    i{
+      color: $soft-text-color;
+      margin-top: 2px;
+    }
+  }
+  &__buttons{
+    display: none;
+    transform: scale(0);
+  }
+}

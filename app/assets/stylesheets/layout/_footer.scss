@@ -1,0 +1,36 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.footer {
+  background: $transparent-bg-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 160px;
+  margin-top: $gutter-size*2;
+  color: $soft-text-color;
+  &__links{
+    display: flex;
+    align-items: center;
+    a{
+      color: $text-color;
+      opacity: 1;
+      text-decoration: none;
+      font-size: $subtitle-font-size;
+      @include padding-vertical($gutter-size/2);
+      &:hover{
+        opacity: 0.15;
+      }
+    }
+  }
+  &__icon{
+    @include margin-horizontal($gutter-size/4);
+    .fa-heart{
+      color: $secondary-color;
+      margin-right: $gutter-size * 0.25 !important;
+    }
+  }
+  &__text{
+    color: $text-color;
+  }
+}

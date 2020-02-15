@@ -1,0 +1,7 @@
+<% if !request.params[:controller].include?("devise") %>
+  <div class="navbar navbar-light --top">
+    <%= link_to root_path, class: "navbar__logo" do %>
+      <h3>ogram</h3>
+    <% end %>
+  </div>
+<% end %>

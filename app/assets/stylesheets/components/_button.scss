@@ -1,0 +1,25 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.btn{
+  border-radius: 3px;
+  text-decoration: none;
+  @include padding-horizontal($gutter-size*0.4);
+  @include padding-vertical($gutter-size*0.2);
+  transition: all .5s ease-out;
+  &.--primary{
+    color: $secondary-color;
+    background: $primary-color;
+    border: 1px solid $secondary-color;
+  }
+  &.--secondary{
+    color: $primary-color;
+    background: $terciary-color;
+  }
+  &.--full{
+    width: 100%;
+  }
+  &:hover{
+    opacity: $hover-opacity;
+  }
+}

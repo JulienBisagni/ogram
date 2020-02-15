@@ -1,33 +1,32 @@
 const swipePost = () => {
-  const testSwipe = document.querySelector(".main");
-  const posts = document.querySelectorAll(".main > div");
-  const firstPost = document.querySelector(".main > div:first-child");
-
   $(function() {
-    $(".main > div").each(function() {
-      const postHeight = $(this).outerHeight();
-      const postIndex = $(this).index() +1;
-      const marginHeight = postHeight * postIndex;
-      const downIndex = $(this).index() -1 ;
-      const downHeight = postHeight * downIndex;
+    const firstPost = document.querySelector(".main > .content:first-child");
+    const zIndex = 1;
+    $(firstPost).css("z-index",`${zIndex}`);
+    $(".main > .content").each(function() {
       $(this).swipe( {
         swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
           const btnView = $(this).find('.btnView');
           const btnSave = $(this).find('.btnSave');
           const btnDownvote = $(this).find('.btnDownvote');
-          if (direction == "up") {
-            $(".main > div:first-child").css("margin-top", `-${marginHeight}px`);
+          if (direction == "up" && $(this).next().length !== 0) {
+            $(this).css("z-index",`${zIndex - 1}`);
+            $(this).next().css("z-index",`${zIndex + 1}`);
             btnView.click();
           };
-          if (direction == "down") {
-          $(".main > div:first-child").css("margin-top", `-${downHeight}px`);
+          if (direction == "down" && $(this).prev().length !== 0) {
+            $(this).css("z-index",`${zIndex - 1}`);
+            $(this).prev().css("z-index",`${zIndex + 1}`);
           };
-          if (direction == "left") {
+          if (direction == "left" && $(this).next().length !== 0) {
+            $(this).css("z-index",`${zIndex - 1}`);
+            $(this).next().css("z-index",`${zIndex + 1}`);
             btnView.click();
             btnDownvote.click();
           };
-          if (direction == "right") {
-            $(".main > div:first-child").css("margin-top", `-${marginHeight}px`);
+          if (direction == "right" && $(this).next().length !== 0) {
+            $(this).css("z-index",`${zIndex - 1}`);
+            $(this).next().css("z-index",`${zIndex + 1}`);
             btnView.click();
             btnSave.click();
           };

@@ -1,0 +1,70 @@
+// Value for padding col- and row
+$gutter-size: 32px;
+// base width
+$base-width: 600px;
+
+
+//Fonts
+$font-regular : 'Run';
+$font-secondary : 'Run';
+
+// Font Sizes
+$small-font-size: 14px;
+$paragraph-font-size: 16px;
+$base-font-size: 18px;
+$navbar-font-size: 20px;
+$logo-font-size: 22px;
+$subtitle-font-size: 22px;
+$title-font-size: 26px;
+$main-title-font-size: 34px;
+$big-title-font-size: 40px;
+
+// Line height
+$base-line-height: normal;
+$heading-line-height: normal;
+
+$hover-opacity: 0.95;
+$border-radius: 6px;
+
+
+//Colors
+$gold:                      #EFAD1E;
+$red:                       #ff483b;
+$light-pink:                #ffeae4;
+$purple:                    #5609F4;
+$blue:                      #174EF3;
+$medium-blue:               #D1DCFB;
+$light-blue:                #e7edfd;
+$white-blue:                #F3F6FE;
+$turquoise:                 #00ccbc;
+$green:                     #13B686;
+$white:                     #ffffff;
+$white-2:                   rgba(242, 242, 242, 0.95);
+$light-grey:                rgba(238, 238, 238, 0.5);
+$grey:                      #6c757d;
+$dark-grey:                 #686e80;
+$black:                     #001835;
+$orange:                    #ec5334;
+$orange-transparent:        rgba(245, 201, 176, 0.25);
+
+$body-bg-color:             $white;
+$transparent-bg-color:      $white-2;
+$text-color:                $black;
+$soft-text-color:           $grey;
+$primary-color:             $white;
+$secondary-color:           $black;
+$terciary-color:           $orange;
+$terciary-color-transparent: $orange-transparent;
+$light-color:               $light-blue;
+$valid-color:               $green;
+$invalid-color:             $red;
+$warning-color:             $gold;
+$border-color:              $grey;
+$disabled-color:            $light-grey;
+$container-color:            $light-grey;
+
+//Breakpoint
+$tablet-medium: 768px;
+$tablet-large: 992px;
+$desktop-small: 1024px;
+$desktop-medium: 1260px;
