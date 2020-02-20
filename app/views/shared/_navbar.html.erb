@@ -4,20 +4,13 @@
         ogram
     <% end %>
     <div class="navbar__icons__icons">
-      <% if user_signed_in? %>
-        <%= link_to destroy_user_session_path, method: :delete, class: "navbar__icons__icon" do %>
-          <%= icon('fas', 'door-closed') %>
-        <% end %>
-      <% else %>
-        <%= link_to new_user_session_path, class: "navbar__icons__icon" do %>
-          <%= icon('fas', 'door-open') %>
-        <% end %>
-      <% end %>
-      <%= link_to root_path, class: "navbar__icons__icon" do %>
-        <%= icon('fas', 'plus-square') %>
-      <% end %>
-      <%= link_to root_path, class: "navbar__icons__icon" do %>
-        <%= icon('fas', 'search') %>
+      <%= form_tag root_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a content"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
