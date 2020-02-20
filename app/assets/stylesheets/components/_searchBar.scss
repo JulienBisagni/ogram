@@ -9,15 +9,15 @@
   cursor: pointer;
   &__input{
     width: 0px;
-    transition: all 2s linear;
+    transition: all 0.5s linear;
     .form-control {
       border: 0px;
-      border-bottom: 1px solid grey;
+      border-bottom: 0.000001px solid grey;
       border-radius: 0;
-      padding: 0;
+      padding: 0 $gutter-size * 0.25;
     }
     &.--active{
-      transition: all 2s linear;
+      transition: all 0.5s linear;
       width: 50vw !important;
       .form-control {
         border-bottom: 1px solid grey;

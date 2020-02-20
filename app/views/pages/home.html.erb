@@ -9,7 +9,6 @@
         <% end %>
       </div>
       <div class="content__content" >
-        <button class="btn btn-secondary" data-modal-target="#modal" id="<%= index %>">OKOK</button>
         <div class="content__content__form">
           <%= render 'comments/form', content: content, comment: @comment, description: content.description%>
         </div>
@@ -18,9 +17,12 @@
             <div class="content__comment__author">
               Posted by <%= @last_user_email %>
             </div>
-              <div class="content__comment__description">
-                <%= @last_comment.description %>
-              </div>
+            <div class="content__comment__description">
+              <%= @last_comment.description %>
+            </div>
+            <div class="content__comment__more" data-modal-target="#modal" id="<%= index %>">
+              See all answers (<%= @comments.count %>)
+            </div>
           </div>
         <% end %>
       </div>
@@ -63,12 +65,3 @@
     </div>
   <% end %>
 </div>
-
-
-<style>
-  .content_search {
-    margin-top: 150px;
-    display: flex;
-    align-items: center;
-  }
-</style>
