@@ -5,16 +5,13 @@
   background: $primary-color;
   @include border-shadow;
   display: flex;
-  justify-content: space-around;
   position: fixed;
   width: 100%;
   top: 0;
   height: 10vh;
   @include padding-horizontal($gutter-size);
-  @include padding-vertical($gutter-size * 0.4);
   text-align: center;
   color: $text-color;
-  display: flex;
   justify-content: space-between;
   &__logo{
     @include typography($color: $text-color, $font-size: $navbar-font-size, $font-weight: bold);

@@ -5,28 +5,64 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.create!(email: 'hello@ogram.com', password: 'mdpmdp')
+
 content_list = [
   [
-    User.last,
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "What's your favorite movie by Leo di Caprio?",
     "app/assets/images/contents/photo1.jpg"
   ],
   [
-    User.last,
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "app/assets/images/contents/photo2.jpg"
+    "What's your all time favorite movie?",
+    "app/assets/images/contents/photo2.jpeg"
   ],
   [
-    User.last,
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Trying to watch the last episode of TNO, any link?",
     "app/assets/images/contents/photo3.jpg"
+  ],
+  [
+    "Any good tips for a travel in Mexico?",
+    "app/assets/images/contents/photo4.jpg"
   ],
 
 ]
 
-content_list.each do |user, description, file |
-  content = Content.new( user: user, description: description)
+content_list.each do |description, file |
+  content = Content.new(user: User.first, description: description)
   media = File.open(file)
   content.file.attach(io: media, filename: 'nes.png')
   content.save!
+end
+
+comments = [
+  [
+    Content.first,
+    User.first.id,
+    "Titanic for sure..."
+  ],
+  [
+    Content.first,
+    User.first.id,
+    "The wold of wall street, definitely!"
+  ],
+  [
+    Content.first,
+    User.first.id,
+    "Any advise for a good burger in Paris?"
+  ],
+  [
+    Content.first,
+    User.first.id,
+    "For me its the Departed"
+  ],
+  [
+    Content.first,
+    User.first.id,
+    "Inception was a mind-blowing one guys!"
+  ]
+]
+
+comments.each do |content, user_id, description |
+  comment = Comment.create( content: content, user_id: user_id, description: description)
 end
