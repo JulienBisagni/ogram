@@ -1,5 +1,21 @@
+<div class= "profile_container">
+  <div class="row justify-content-center">
+    <div class="col-8 ">
+     <%= cl_image_tag @user.photo.key, width: 300, height: 300, crop: :fill%>
+      <%= @user.name %>
+      <%= @user.email %>
+      <div> Saved</div>
+      <div> My uploads</div>
+    </div>
+  </div>
+</div>
 
-<%= @user.name %>
-<%= @user.email %>
-<div> Saved</div>
-<div> My uploads</div>
+
+
+<style>
+  .profile_container{
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+  }
+</style>
