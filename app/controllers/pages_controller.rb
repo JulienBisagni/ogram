@@ -4,7 +4,16 @@ class PagesController < ApplicationController
 
   def home
     @user_view = UserView.new
-    @contents = Content.all
+    if params[:query].present?
+      sql_query = " \
+        description @@ :query \
+        OR tag @@ :query \
+        OR place @@ :query \
+      "
+      @contents = Content.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @contents = Content.all
+    end
     @comment = Comment.new
     @last_comment = Comment.last
   end

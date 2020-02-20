@@ -1,11 +1,25 @@
-<%= simple_form_for(@content) do |f| %>
-  <%= f.input :description%>
-  <%= f.input :place, :id => 'content_place'%>
-  <%= f.input :tag %>
-  <%= f.input :file, as: :file %>
-    <% if current_user %>
-      <%= f.association :user, :as => :hidden, :input_html => { :value => current_user.id }  %>
-    <% end %>
-  <%= f.submit 'upload' %>
 
-<% end %>
+<div class= "container content_new">
+  <div class="row justify-content-center">
+    <div class="col-8 ">
+        <%= simple_form_for(@content) do |f| %>
+        <%= f.input :description%>
+        <%= f.input :place, :id => 'content_place'%>
+        <%= f.input :tag, placeholder:"seperate ur keyword with ,"%>
+        <%= f.input :file, as: :file %>
+          <% if current_user %>
+            <%= f.association :user, :as => :hidden, :input_html => { :value => current_user.id }  %>
+          <% end %>
+        <%= f.submit 'upload' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<style>
+  .content_new {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+  }
+</style>
