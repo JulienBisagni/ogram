@@ -3,15 +3,44 @@
     <%= link_to root_path, class: "navbar__logo" do %>
         ogram
     <% end %>
-    <div class="navbar__icons__icons">
-      <%= form_tag root_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a content"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+
+    <% if params[:controller] == "contents" %>
+      <%= form_tag contents_path, method: :get do %>
+        <div class= "searchBar">
+          <div class="searchBar__input">
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Search a topic"
+            %>
+          </div>
+          <div class="searchBar__icon">
+            <%= icon('fas', 'search') %>
+          </div>
+          <div class="searchBar__submit">
+            <%= submit_tag "Search", id: "search-bar-submit"%>
+          </div>
+        </div>
       <% end %>
-    </div>
+    <% else %>
+      <%= form_tag root_path, method: :get do %>
+        <div class= "searchBar">
+          <div class="searchBar__input">
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Search a topic"
+            %>
+          </div>
+          <div class="searchBar__icon">
+            <%= icon('fas', 'search') %>
+          </div>
+          <div class="searchBar__submit --inactive">
+            <%= submit_tag "Search", id: "search-bar-submit"%>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
   </div>
 <% end %>

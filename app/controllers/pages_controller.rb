@@ -4,9 +4,19 @@ class PagesController < ApplicationController
 
   def home
     @user_view = UserView.new
+    if params[:query].present?
+      sql_query = " \
+        description @@ :query \
+        OR tag @@ :query \
+        OR place @@ :query \
+      "
+      @contents = Content.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @contents = Content.all
+    end
     @contents = Content.all
-    @comments = Comment.all
     @comment = Comment.new
+    @comments = Comment.all
     @last_comment = Comment.last
     @last_user_email = User.find(@last_comment.user_id).email
   end

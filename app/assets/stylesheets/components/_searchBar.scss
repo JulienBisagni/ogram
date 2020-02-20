@@ -1,0 +1,33 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.searchBar{
+  transition: all 2s linear !important;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  cursor: pointer;
+  &__input{
+    width: 0px;
+    transition: all 2s linear;
+    .form-control {
+      border: 0px;
+      border-bottom: 1px solid grey;
+      border-radius: 0;
+      padding: 0;
+    }
+    &.--active{
+      transition: all 2s linear;
+      width: 50vw !important;
+      .form-control {
+        border-bottom: 1px solid grey;
+      }
+    }
+  }
+  &__icon{
+    position: absolute;
+    right: $gutter-size ;
+    background: $primary-color;
+    padding: 0 10px;
+  }
+}

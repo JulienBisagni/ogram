@@ -1,26 +1,26 @@
 class ContentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+
   def index
     @user_view = UserView.new
-    @contents = Content.all
+    @contents = policy_scope(Content).order(created_at: :desc)
+
     if params[:query].present?
       sql_query = " \
         description @@ :query \
         OR tag @@ :query \
         OR place @@ :query \
       "
-      @contents = Content.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @contents = Content.all
+      @contents = @contents.where(sql_query, query: "%#{params[:query]}%")
     end
-    @contents = policy_scope(Content).order(created_at: :desc)
-    @markers = @contents.map do |content|
-      {
-        lat: content.latitude,
-        lng: content.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { content: content })
-      }
-    end
+
+    # @markers = @contents.map do |content|
+    #   {
+    #     lat: content.latitude,
+    #     lng: content.longitude,
+    #     infoWindow: render_to_string(partial: "info_window", locals: { content: content })
+    #   }
+    # end
   end
 
   def show
