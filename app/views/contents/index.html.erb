@@ -1,18 +1,1 @@
-<div class= "content_search">
-<%= form_tag contents_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Find a content"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-</div>
 
-<style>
-  .content_search {
-    margin-top: 150px;
-    display: flex;
-    align-items: center;
-  }
-</style>

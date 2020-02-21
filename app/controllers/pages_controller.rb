@@ -14,7 +14,10 @@ class PagesController < ApplicationController
     else
       @contents = Content.all
     end
+    @contents = Content.all
     @comment = Comment.new
+    @comments = Comment.all
     @last_comment = Comment.last
+    @last_user_email = User.find(@last_comment.user_id).email
   end
 end

@@ -1,16 +1,16 @@
 <% if !request.params[:controller].include?("devise") %>
   <div class="navbar">
-    <%= link_to root_path, class: "navbar__logo" do %>
-        ogram
-    <% end %>
-    <div class="navbar__icons__icons">
-      <%= form_tag root_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a content"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+    <div>
+      <%= link_to root_path, class: "navbar__logo" do %>
+          ogram
+      <% end %>
+    </div>
+
+    <div>
+      <% if params[:controller] == "contents" %>
+      <%= render 'shared/searchBar', path: contents_path %>
+      <% else %>
+      <%= render 'shared/searchBar', path: root_path %>
       <% end %>
     </div>
   </div>

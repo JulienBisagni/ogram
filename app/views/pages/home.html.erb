@@ -1,15 +1,30 @@
 <div class="main">
   <% @contents.each_with_index do |content, index| %>
     <div class="content" id="<%= index %>">
-      <div>
+      <div class="content__media">
         <% if content.file.content_type.include?("image") %>
-            <%= cl_image_tag content.file.key, class: "content__img" %>
+            <%= cl_image_tag content.file.key, class: "content__media__file" %>
         <% else %>
-            <%= cl_video_tag content.file.key, controls:true, class: "content__img" %>
+            <%= cl_video_tag content.file.key, controls:true, class: "content__media__file" %>
         <% end %>
       </div>
-      <div class="content__form" >
-        <%= render 'comments/form', content: content, comment: @comment %>
+      <div class="content__content" >
+        <div class="content__content__form">
+          <%= render 'comments/form', content: content, comment: @comment, description: content.description%>
+        </div>
+        <% if @last_comment %>
+          <div class="content__comment">
+            <div class="content__comment__author">
+              Posted by <%= @last_user_email %>
+            </div>
+            <div class="content__comment__description">
+              <%= @last_comment.description %>
+            </div>
+            <div class="content__comment__more" data-modal-target="#modal" id="<%= index %>">
+              See all answers (<%= @comments.count %>)
+            </div>
+          </div>
+        <% end %>
       </div>
       <div class="content__buttons">
         <%= simple_form_for @user_view, remote: true do |f| %>
@@ -25,36 +40,28 @@
           <%= f.submit "Downvote content", class: "btnDownvote" %>
         <% end %>
       </div>
-      <button class="btn btn-secondary" data-modal-target="#modal" id="<%= index %>">OKOK</button>
       <div class="modal" id="modal-<%= index %>">
         <div class="modal__header">
-          <div class="modal__header__title">Comments</div>
+          <div class="modal__header__title">
+            <%= content.description %>
+          </div>
           <button data-close-modal="#closeModal"  class="modal__header__close">&times;</button>
         </div>
         <div class="modal__body">
-          <div class="content__post__author">
-            Posted by <%= content.user.email %>
-          </div>
-          <div class="content__post__description">
-            <%= content.description %>
-          </div>
-          <div class="content__post__author">
-            posted by @flo - 2min ago in Paris.
-          </div>
-          <div class="content__comment__description">
-            "Great movie, I watched it last night with my mife, what a performance from J.Phoenix!"
-          </div>
+          <% @comments.each do |comment|%>
+            <% if comment %>
+              <div class="content__comment">
+                <div class="content__comment__author">
+                  Posted by <%= User.find(comment.user_id).email %>
+                </div>
+                <div class="content__comment__description">
+                  <%= content.description %>
+                </div>
+              </div>
+            <% end%>
+          <% end%>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-
-
-<style>
-  .content_search {
-    margin-top: 150px;
-    display: flex;
-    align-items: center;
-  }
-</style>
