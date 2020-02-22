@@ -17,7 +17,7 @@
         </div>
         <% if content.comments.last %>
           <div id="last-comment-wrapper-<%= content.id %>">
-            <%= render 'last_comment', comment: content.comments.last %>
+            <%= render 'shared/lastComment', comment: content.comments.last %>
           </div>
         <% end %>
       </div>
