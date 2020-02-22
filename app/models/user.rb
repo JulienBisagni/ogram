@@ -5,5 +5,4 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :contents
   has_many :user_views
-  has_one_attached :photo
 end
