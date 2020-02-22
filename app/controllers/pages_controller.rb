@@ -3,18 +3,19 @@ class PagesController < ApplicationController
   skip_after_action :verify_authorized
 
   def home
-
     @user_view = UserView.new
+    @contents = Content.all
+
     if params[:query].present?
       sql_query = " \
         description @@ :query \
         OR tag @@ :query \
         OR place @@ :query \
       "
-      @contents = Content.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @contents = Content.all
+      @contents = @contents.where(sql_query, query: "%#{params[:query]}%")
     end
+
+    @contents = @contents.select { |c| !c.downvoted?(current_user) }
 
     @comment = Comment.new
     @comments = Comment.all

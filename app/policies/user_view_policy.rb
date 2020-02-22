@@ -7,9 +7,11 @@ class UserViewPolicy < ApplicationPolicy
   def create?
     return true
   end
+
   def save?
     return true
   end
+
   def downvote?
     return true
   end
