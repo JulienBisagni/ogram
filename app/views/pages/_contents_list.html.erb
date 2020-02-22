@@ -13,16 +13,8 @@
           <%= render 'comments/form', content: content, comment: @comment, description: content.description%>
         </div>
         <% if content.comments.last %>
-          <div class="content__comment">
-            <div class="content__comment__author">
-              Posted by <%= content.comments.last.user.email %>
-            </div>
-            <div class="content__comment__description">
-              <%= content.comments.last.description %>
-            </div>
-            <div class="content__comment__more" data-modal-target="#modal" id="<%= index %>">
-              See all answers (<%= content.comments.count %>)
-            </div>
+          <div id="last-comment-wrapper-<%= content.id %>">
+            <%= render 'last_comment', comment: content.comments.last %>
           </div>
         <% end %>
       </div>
