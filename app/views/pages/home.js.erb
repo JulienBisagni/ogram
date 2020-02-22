@@ -1,2 +1,2 @@
-const newList = document.querySelector('.main');
-newList.innerHTML = '<%= j render "contents_list", contents: @contents, comments: @comments, user_view: @user_view, last_comment: @last_comment %>';
+// let newList = document.querySelector('.main');
+document.querySelector('.main').innerHTML = '<%= j render "contents_list", contents: @contents, comments: @comments, user_view: @user_view, last_comment: @last_comment %>';

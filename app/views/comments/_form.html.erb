@@ -1,13 +1,12 @@
-<%= simple_form_for([ content, comment ], remote: true) do |f| %>
+<%= simple_form_for([content, comment], remote: true) do |f| %>
   <div class="content__content__form__text">
-    <%= description %>
+    <%= content.description %>
   </div>
 
   <div class="content__content__form__inputs">
-    <%= f.input :description, as: :text, label: false%>
+    <%= f.input :description, label: false %>
     <%= button_tag(type: 'submit') do %>
-      <%= icon('fas', 'comment-alt') %>
+      <%= icon('fas', 'comment-alt')  %>
     <% end %>
   </div>
-
 <% end %>
