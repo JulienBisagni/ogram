@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    authorize current_user
+    @contents = Content.all.select { |c| c.saved?(current_user) }
   end
 
   def edit

@@ -11,4 +11,8 @@ class Content < ApplicationRecord
   def downvoted?(user)
     user.user_views.select(&:downvoted).map(&:content).include?(self)
   end
+
+  def saved?(user)
+    user.user_views.select(&:saved).map(&:content).include?(self)
+  end
 end

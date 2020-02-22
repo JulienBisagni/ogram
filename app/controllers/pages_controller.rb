@@ -20,13 +20,11 @@ class PagesController < ApplicationController
     @comment = Comment.new
     @comments = Comment.all
     @last_comment = Comment.last
-    @last_user_email = User.find(@last_comment.user_id).email
+    #@last_user_email = User.find(@last_comment.user_id).email
 
-     respond_to do |format|
-        format.html { render 'home' }
-        format.js # <-- idem
+    respond_to do |format|
+      format.html { render 'home' }
+      format.js # <-- idem
     end
-
-
   end
 end
