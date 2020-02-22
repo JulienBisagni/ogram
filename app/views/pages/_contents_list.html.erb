@@ -1,6 +1,6 @@
 <div class="main">
-  <% @contents.each_with_index do |content, index| %>
-    <div class="content" id="<%= index %>">
+  <% @contents.each do |content| %>
+    <div class="content" id="content-<%= content.id %>">
       <div class="content__media">
         <% if content.file.content_type.include?("image") %>
             <%= cl_image_tag content.file.key, class: "content__media__file" %>
@@ -35,7 +35,7 @@
           <%= f.submit "Downvote content", class: "btnDownvote" %>
         <% end %>
       </div>
-      <div class="modal" id="modal-<%= index %>">
+      <div class="modal" id="modal-<%= content.id %>">
         <div class="modal__header">
           <div class="modal__header__title">
             <%= content.description %>

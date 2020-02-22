@@ -9,6 +9,7 @@ class UserViewsController < ApplicationController
       format.js
     end
   end
+
   def save
     @user_view = UserView.find_or_create_by(user: current_user, content_id: params[:user_view][:content_id])
     @user_view.saved = true
@@ -19,6 +20,7 @@ class UserViewsController < ApplicationController
       format.js
     end
   end
+
   def downvote
     @user_view = UserView.find_or_create_by(user: current_user, content_id: params[:user_view][:content_id])
     @user_view.downvoted = true
@@ -31,6 +33,7 @@ class UserViewsController < ApplicationController
   end
 
   private
+
   def user_view_params
     params.require(:user_view).permit(:content_id, :saved)
   end
