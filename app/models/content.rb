@@ -5,7 +5,7 @@ class Content < ApplicationRecord
   has_one_attached :file
   geocoded_by :place
   has_many :user_views
-
+  validates :description, length: { minimum: 1 }
   after_validation :geocode, if: :will_save_change_to_place?
 
   def downvoted?(user)
