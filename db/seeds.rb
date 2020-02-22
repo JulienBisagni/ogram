@@ -71,9 +71,8 @@ comments = [
     User.first.id,
     "lol!"
   ]
-
 ]
 
-comments.each do |content, user_id, description |
-  comment = Comment.create( content: content, user_id: user_id, description: description)
+comments.each do |content, user_id, description|
+  Comment.create(content: Content.first, user_id: user_id, description: description)
 end
