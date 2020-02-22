@@ -1,5 +1,5 @@
 <%= simple_form_for([content, comment], remote: true) do |f| %>
-  <div class= "commentForm">
+  <div class= "commentForm" id="commentForm-<%= content.id %>">
     <div class="commentForm__input">
       <%= f.input_field :description, label: false,
         class: "form-control",
@@ -10,7 +10,7 @@
       <%= icon('fas', 'comment-alt')  %>
     </div>
     <div class="commentForm__submit --inactive">
-      <%= f.submit "Comment", id: "commentForm__submit"%>
+      <%= f.submit "Comment" %>
     </div>
   </div>
 <% end %>

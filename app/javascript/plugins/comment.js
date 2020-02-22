@@ -1,8 +1,12 @@
 const submitComment = () => {
-  const submitIcon = document.querySelector(".commentForm__icon");
-  submitIcon.addEventListener('click', () => {
-    const submitButton = document.querySelector("#commentForm__submit");
-    submitButton.click();
+  const commentForms = document.querySelectorAll(".commentForm");
+  commentForms.forEach(form => {
+    const icon = form.querySelector(".commentForm__icon");
+    const submitBtn = form.querySelector(".commentForm__icon");
+    icon.addEventListener('click', () => {
+      const submitBtn = form.querySelector('input[name="comment[description]"]')
+      submitBtn.click();
+    });
   });
 };
 

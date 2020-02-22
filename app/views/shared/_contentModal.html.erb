@@ -1,0 +1,22 @@
+<div class="modal">
+  <div class="modal__header">
+    <div class="modal__header__title">
+      <%= content.description %>
+    </div>
+    <button data-close-modal="#closeModal"  class="modal__header__close">&times;</button>
+  </div>
+  <div class="modal__body" id="comments">
+    <% content.comments.each do |comment|%>
+      <% if comment %>
+        <div class="content__comment">
+          <div class="content__comment__author">
+             Posted by <%= User.find(comment.user_id).email %>
+          </div>
+          <div class="content__comment__description">
+            <%= comment.description %>
+          </div>
+        </div>
+      <% end%>
+    <% end%>
+  </div>
+</div>

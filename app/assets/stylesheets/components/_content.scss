@@ -19,55 +19,23 @@
       height: 50vh;
     }
   }
-  &__content{
+  &__text{
     flex-grow: 1;
     background: $primary-color;
     overflow: scroll;
     padding: $gutter-size * 0.5;
     @include margin-horizontal($gutter-size * 0.33);
-    &__form{
-      margin-bottom: $gutter-size;
-      &__inputs{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        .form-control{
-          height: 6vh;
-        }
-        button{
-          position: absolute;
-          right: $gutter-size;
-          padding-bottom: $gutter-size * 0.5;
-        }
-      }
-      &__text{
-        @include typography($font-size: $base-font-size);
-        margin-bottom: $gutter-size * 0.5;
-      }
-      .form-group{
-        width: 100%;
-      }
-    }
-  }
-  &__comment{
-    padding-bottom: $gutter-size * 0.5;
-    margin-bottom: $gutter-size * 0.25;
-    @include typography($font-size: $small-font-size, $color: $soft-text-color);
-    &__author{
-      width: 100%;
-    }
-    &__description{
-      @include typography($font-size: $paragraph-font-size);
+    &__title{
+      @include typography($font-size: $base-font-size);
       margin-bottom: $gutter-size * 0.5;
     }
-    &__icon{
-      margin-right: $gutter-size * 0.33;
-      text-align: center;
-      color: $soft-text-color;
+    &__commentForm{
+      margin-bottom: $gutter-size;
     }
-    i{
-      color: $soft-text-color;
-      margin-top: 2px;
+    &__comment{
+      padding-bottom: $gutter-size * 0.5;
+      margin-bottom: $gutter-size * 0.25;
+      @include typography($font-size: $small-font-size, $color: $soft-text-color);
     }
   }
   &__labels{
@@ -86,7 +54,7 @@
   p{
     margin-bottom: 0;
   }
-  &__buttons{
+  &__hiddenButtons{
     display: none;
     transform: scale(0);
   }
