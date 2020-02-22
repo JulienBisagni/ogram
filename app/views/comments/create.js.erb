@@ -1,6 +1,5 @@
 $('#comments').append("<%= j render 'comments/show', comment: @comment %>");
 $('#comment_description').val('');
-$('#comment_description').val('');
+console.log(document.querySelector('#last-comment-wrapper'))
 
-
-console.log('io')
+document.querySelector("#last-comment-wrapper-<%= @comment.content.id %>").innerHTML = "<%= j render 'pages/last_comment', comment: @comment %>";
