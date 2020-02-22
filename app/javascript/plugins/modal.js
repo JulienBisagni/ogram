@@ -1,15 +1,15 @@
 const modal = () => {
-  const openModalButtons = document.querySelectorAll('[data-modal-target]');
-  const closeModalButtons = document.querySelectorAll('[data-close-modal]');
-  openModalButtons.forEach(button => {
-    button.addEventListener('touchstart', () => {
-      const modal = document.getElementById(`modal-${button.id}`);
+  const contents = document.querySelectorAll(".content");
+  contents.forEach(content => {
+    const openModalBtn = content.querySelector('[data-modal-target]');
+    const closeModalBtn = content.querySelector('[data-close-modal]');
+    openModalBtn.addEventListener('touchstart', () => {
+      const modal = content.querySelector('.modal');
+      console.log(modal);
       openModal(modal);
     });
-  });
-  closeModalButtons.forEach(button => {
-    button.addEventListener('touchstart', () => {
-      const modal = button.closest('.modal');
+    closeModalBtn.addEventListener('touchstart', () => {
+      const modal = content.querySelector('.modal');
       closeModal(modal);
     });
   });

@@ -1,0 +1,11 @@
+<div class="comment">
+  <div class="comment__author">
+    Posted by <%= comment.user.email %>
+  </div>
+  <div class="comment__description">
+    <%= comment.description %>
+  </div>
+  <div class="comment__more" data-modal-target="#modal" id="<%= comment.id %>">
+    See all answers (<%= comment.content.comments.count %>)
+  </div>
+</div>

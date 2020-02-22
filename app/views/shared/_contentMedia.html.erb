@@ -1,0 +1,5 @@
+<% if content.file.content_type.include?("image") %>
+    <%= cl_image_tag content.file.key, class: "content__media__file" %>
+<% else %>
+    <%= cl_video_tag content.file.key, controls:true, class: "content__media__file" %>
+<% end %>

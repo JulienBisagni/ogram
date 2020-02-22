@@ -1,0 +1,21 @@
+.comment{
+  &__author{
+    width: 100%;
+  }
+  &__description{
+    @include typography($font-size: $paragraph-font-size);
+    margin-bottom: $gutter-size * 0.5;
+  }
+  &__more{
+    
+  }
+  // &__icon{
+  //   margin-right: $gutter-size * 0.33;
+  //   text-align: center;
+  //   color: $soft-text-color;
+  // }
+  // i{
+  //   color: $soft-text-color;
+  //   margin-top: 2px;
+  // }
+}
