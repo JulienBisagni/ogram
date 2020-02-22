@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   skip_after_action :verify_authorized
 
   def home
+
     @user_view = UserView.new
     if params[:query].present?
       sql_query = " \
@@ -14,10 +15,17 @@ class PagesController < ApplicationController
     else
       @contents = Content.all
     end
-    @contents = Content.all
+
     @comment = Comment.new
     @comments = Comment.all
     @last_comment = Comment.last
     @last_user_email = User.find(@last_comment.user_id).email
+
+     respond_to do |format|
+        format.html { render 'home' }
+        format.js # <-- idem
+    end
+
+
   end
 end

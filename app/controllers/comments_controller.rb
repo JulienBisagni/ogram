@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
     @content = Content.find(params[:content_id])
     @comment = Comment.new(comment_params)
     @comment.content = @content
+    @comment.user = current_user
+
     authorize @comment
     if @comment.save
       respond_to do |format|
