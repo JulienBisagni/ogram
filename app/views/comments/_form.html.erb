@@ -1,12 +1,16 @@
 <%= simple_form_for([content, comment], remote: true) do |f| %>
-  <div class="content__content__form__text">
-    <%= content.description %>
-  </div>
-
-  <div class="content__content__form__inputs">
-    <%= f.input :description, label: false %>
-    <%= button_tag(type: 'submit') do %>
+  <div class= "commentForm">
+    <div class="commentForm__input">
+      <%= f.input_field :description, :input_html => {:rows => 5}, label: false,
+        class: "form-control",
+        placeholder: "Give your answer"
+      %>
+    </div>
+    <div class="commentForm__icon">
       <%= icon('fas', 'comment-alt')  %>
-    <% end %>
+    </div>
+    <div class="commentForm__submit --inactive">
+      <%= f.submit "Comment", id: "commentForm__submit"%>
+    </div>
   </div>
 <% end %>
