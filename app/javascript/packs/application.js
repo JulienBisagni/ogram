@@ -8,6 +8,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { modal } from '../plugins/modal.js'
 import { swipePost } from '../plugins/swipePost';
 import { searchBar } from '../plugins/searchBar';
+import { submitComment } from '../plugins/comment';
 
 window.$ = $;
 
@@ -16,3 +17,4 @@ initAutocomplete();
 modal();
 swipePost();
 searchBar();
+submitComment();

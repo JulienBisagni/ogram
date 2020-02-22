@@ -26,7 +26,7 @@
     padding: $gutter-size * 0.5;
     @include margin-horizontal($gutter-size * 0.33);
     &__form{
-      margin-bottom: $gutter-size * 0.5;
+      margin-bottom: $gutter-size;
       &__inputs{
         display: flex;
         justify-content: space-around;
