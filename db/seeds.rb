@@ -60,7 +60,18 @@ comments = [
     Content.first,
     User.first.id,
     "Inception was a mind-blowing one guys!"
+  ],
+   [
+    Content.last,
+    User.first.id,
+    "tacos!"
+  ],
+   [
+    Content.last,
+    User.first.id,
+    "lol!"
   ]
+
 ]
 
 comments.each do |content, user_id, description |

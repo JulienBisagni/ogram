@@ -12,16 +12,16 @@
         <div class="content__content__form">
           <%= render 'comments/form', content: content, comment: @comment, description: content.description%>
         </div>
-        <% if @last_comment %>
+        <% if content.comments.last %>
           <div class="content__comment">
             <div class="content__comment__author">
-              Posted by <%= @last_user_email %>
+              Posted by <%= content.comments.last.user.email %>
             </div>
             <div class="content__comment__description">
-              <%= @last_comment.description %>
+              <%= content.comments.last.description %>
             </div>
             <div class="content__comment__more" data-modal-target="#modal" id="<%= index %>">
-              See all answers (<%= @comments.count %>)
+              See all answers (<%= content.comments.count %>)
             </div>
           </div>
         <% end %>
@@ -48,14 +48,14 @@
           <button data-close-modal="#closeModal"  class="modal__header__close">&times;</button>
         </div>
         <div class="modal__body" id="comments">
-          <% @comments.each do |comment|%>
+          <% content.comments.each do |comment|%>
             <% if comment %>
               <div class="content__comment">
                 <div class="content__comment__author">
                    Posted by <%= User.find(comment.user_id).email %>
                 </div>
                 <div class="content__comment__description">
-                  <%= content.description %>
+                  <%= comment.description %>
                 </div>
               </div>
             <% end%>
