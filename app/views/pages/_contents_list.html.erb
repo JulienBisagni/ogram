@@ -13,7 +13,7 @@
           <%= content.description %>
         </div>
         <div class="content__content__form">
-          <%= render 'comments/form', content: content, comment: @comment %>
+          <%= render 'shared/commentForm', content: content, comment: @comment %>
         </div>
         <% if content.comments.last %>
           <div id="last-comment-wrapper-<%= content.id %>">
