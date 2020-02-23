@@ -1,18 +1,22 @@
 <div class="modal">
   <div class="modal__header">
-    <div class="modal__header__title">
+    <div class="modal__title">
       <%= content.description %>
     </div>
-    <button data-close-modal="#closeModal"  class="modal__header__close">&times;</button>
+    <button data-close-modal="#closeModal"  class="modal__close">&times;</button>
+  </div>
+  <div class="modal__form">
+    <%= render 'shared/commentForm', content: content, comment: @comment %>
   </div>
   <div class="modal__body" id="comments">
     <% content.comments.each do |comment|%>
       <% if comment %>
-        <div class="content__comment">
-          <div class="content__comment__author">
-             Posted by <%= User.find(comment.user_id).email %>
+        <div class="comment">
+          <div class="comment__author">
+            <div>Posted by <%= User.find(comment.user_id).email %></div>
+             <div>&times;</div>
           </div>
-          <div class="content__comment__description">
+          <div class="comment__description">
             <%= comment.description %>
           </div>
         </div>

@@ -20,21 +20,22 @@
     }
   }
   &__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     flex-grow: 1;
     background: $primary-color;
     overflow: scroll;
     padding: $gutter-size * 0.5;
     @include margin-horizontal($gutter-size * 0.33);
     &__title{
-      @include typography($font-size: $base-font-size);
+      @include typography($font-size: $question-font-size);
       margin-bottom: $gutter-size * 0.5;
     }
     &__commentForm{
-      margin-bottom: $gutter-size;
+      margin-bottom: $gutter-size * 0.66;
     }
     &__comment{
-      padding-bottom: $gutter-size * 0.5;
-      margin-bottom: $gutter-size * 0.25;
       @include typography($font-size: $small-font-size, $color: $soft-text-color);
     }
   }

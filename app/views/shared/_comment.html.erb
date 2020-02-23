@@ -5,7 +5,7 @@
   <div class="comment__description">
     <%= comment.description %>
   </div>
-  <div class="comment__more" data-modal-target="#modal" id="<%= comment.id %>">
-    See all answers (<%= comment.content.comments.count %>)
-  </div>
+</div>
+<div class="comment__more" data-modal-target="#modal" id="<%= comment.id %>">
+  See more answers (<%= comment.content.comments.count %>)
 </div>
