@@ -18,15 +18,14 @@
     }
     &.--active{
       transition: all 0.5s linear;
-      width: 50vw !important;
+      width: 40vw !important;
       .form-control {
         border-bottom: 1px solid grey;
       }
     }
   }
   &__icon{
-    position: absolute;
-    right: $gutter-size ;
+    margin-left: -$gutter-size * 1.25 ;
     background: $primary-color;
     padding: 0 10px;
   }
