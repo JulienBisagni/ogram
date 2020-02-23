@@ -16,6 +16,7 @@
   }
   &__icon{
     position: absolute;
-    right: $gutter-size ;
+    right: $gutter-size * 1.25;
+    margin-top: 1px;
   }
 }

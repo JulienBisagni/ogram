@@ -7,36 +7,34 @@
   height: 100vh;
   width: 100%;
   border: 1px solid black;
-  // z-index: 10;
   background: $white;
   display: block;
   padding: $gutter-size;
-  &.active{
-    opacity: 0.95;
-    transform: scale(1);
+  word-break: break-word;
+  overflow: scroll;
+  &__close{
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+  }
+  &__title{
+    @include typography($font-size: $title-font-size);
   }
   &__header{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: end;
     vertical-align: middle;
     margin-bottom: $gutter-size * 0.5;
-    &__close{
-      border: none;
-      outline: none;
-      background: none;
-      cursor: pointer;
-    }
   }
   &__comment{
-    border-bottom: 1px solid $border-color;
   }
-}
-
-#overlay{
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5);
+  &__form{
+    margin-bottom: $gutter-size * 0.5;
+  }
+  &.active{
+    opacity: 0.95;
+    transform: scale(1);
+  }
 }

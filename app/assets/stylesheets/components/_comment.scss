@@ -1,21 +1,19 @@
 .comment{
+  margin-bottom: $gutter-size * 0.40;
+  background: $transparent-bg-color;
+  padding: $gutter-size * 0.33;
+  border-radius: $border-radius;
   &__author{
-    width: 100%;
+    @include typography($font-size: $small-font-size, $color: $soft-text-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
   }
   &__description{
-    @include typography($font-size: $paragraph-font-size);
-    margin-bottom: $gutter-size * 0.5;
+    @include typography($font-size: $base-font-size);
+    padding-right: $gutter-size * 0.75;
   }
   &__more{
-    
+    padding-left: $gutter-size * 0.33;
   }
-  // &__icon{
-  //   margin-right: $gutter-size * 0.33;
-  //   text-align: center;
-  //   color: $soft-text-color;
-  // }
-  // i{
-  //   color: $soft-text-color;
-  //   margin-top: 2px;
-  // }
 }

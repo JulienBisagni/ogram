@@ -16,7 +16,6 @@
       color: $text-color;
       opacity: 1;
       text-decoration: none;
-      font-size: $subtitle-font-size;
       @include padding-vertical($gutter-size/2);
       &:hover{
         opacity: 0.15;
