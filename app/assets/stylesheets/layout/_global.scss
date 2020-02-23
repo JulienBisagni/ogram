@@ -109,3 +109,12 @@ textarea:focus, input:focus{
 .--inactive{
   display: none;
 }
+
+.form-control{
+  width: 80%;
+  &:focus{
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
