@@ -17,15 +17,20 @@
     @include typography($color: $text-color, $font-size: $navbar-font-size, $font-weight: bold);
   }
   &__icons{
+    margin-left: 20px;
     display: flex;
     justify-content: space-between;
-    &__icon{
-      @include typography($color: $text-color, $font-size: $navbar-font-size);
-      opacity: 0.9;
-      .fas{
-        margin: 0;
-        margin-right: $gutter-size * 0.5
+    align-items: center;
+    vertical-align: middle;
+    .fas{
+      margin: 0;
+      padding-right: $gutter-size * 0.4;
+      &.fa-search{
+        padding: 0;
       }
     }
+  }
+  a{
+    color: $text-color;
   }
 }

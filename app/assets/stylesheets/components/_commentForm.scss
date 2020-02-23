@@ -9,6 +9,7 @@
   &__input{
     width: 100vw;
     .form-control {
+      width: 100% !important;
       border: 1px solid $soft-text-color;
       border-radius: $border-radius;
       padding: 0 $gutter-size * 0.25;
