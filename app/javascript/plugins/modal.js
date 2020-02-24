@@ -3,17 +3,18 @@ const modal = () => {
   contents.forEach(content => {
     const openModalBtn = content.querySelector('[data-modal-target]');
     const closeModalBtn = content.querySelector('[data-close-modal]');
-    openModalBtn.addEventListener('touchstart', () => {
-      const modal = content.querySelector('.modal');
-      console.log(modal);
-      openModal(modal);
-    });
-    closeModalBtn.addEventListener('touchstart', () => {
-      const modal = content.querySelector('.modal');
-      closeModal(modal);
-    });
+    if (openModalBtn){
+      openModalBtn.addEventListener('touchstart', () => {
+        const modal = content.querySelector('.modal');
+        openModal(modal);
+      });
+      closeModalBtn.addEventListener('touchstart', () => {
+        const modal = content.querySelector('.modal');
+        closeModal(modal);
+      });
+    }
   });
-}
+};
 
 const openModal = (modal) => {
   modal.classList.add('active');
