@@ -9,5 +9,15 @@ const submitComment = () => {
     });
   });
 };
+// const deleteComment = () => {
+//   const comments = document.querySelectorAll(".comment");
+//   comments.forEach(form => {
+//     const deleteBtn = form.querySelector(".comment__delete");
+//     deleteBtn.addEventListener('click', () => {
+//       const submitBtn = form.querySelector('input[name="comment[description]"]')
+//       submitBtn.click();
+//     });
+//   });
+// };
 
 export { submitComment };
