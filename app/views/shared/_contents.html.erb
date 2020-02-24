@@ -10,9 +10,11 @@
       <div class="content__text__commentForm">
         <%= render 'shared/commentForm', content: content, comment: @comment %>
       </div>
-      <div class="content__text__comment" id="last-comment-wrapper-<%= content.id %>">
-        <%= render 'shared/comment', comment: content.comments.last %>
-      </div>
+      <% if content.comments.last %>
+        <div class="content__text__comment" id="last-comment-wrapper-<%= content.id %>">
+          <%= render 'shared/comment', comment: content.comments.last %>
+        </div>
+      <% end %>
     </div>
     <div class="content__hiddenButtons">
       <%= render 'shared/contentHiddenButtons', user_view: @user_view, content: content %>
