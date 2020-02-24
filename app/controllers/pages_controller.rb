@@ -5,7 +5,6 @@ class PagesController < ApplicationController
   def home
     @user_view = UserView.new
     @contents = Content.all
-
     if params[:query].present?
       sql_query = " \
         description @@ :query \
@@ -13,15 +12,13 @@ class PagesController < ApplicationController
         OR place @@ :query \
       "
       @contents = @contents.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @contents = Content.all
     end
-
     @contents = @contents.select { |c| !c.downvoted?(current_user) }
-
     @comment = Comment.new
     @comments = Comment.all
     @last_comment = Comment.last
-    #@last_user_email = User.find(@last_comment.user_id).email
-
     respond_to do |format|
       format.html { render 'home' }
       format.js # <-- idem
