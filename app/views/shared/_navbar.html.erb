@@ -11,14 +11,8 @@
       <% else %>
       <%= render 'shared/searchBar', path: root_path %>
       <% end %>
-      <% if user_signed_in? %>
-        <%= link_to new_user_session_path do %>
-          <%= icon('fas', 'door-open') %>
-        <% end %>
-      <% else %>
-        <%= link_to destroy_user_session_path do %>
-          <%= icon('fas', 'door-closed') %>
-        <% end %>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <%= icon('fas', 'door-closed') %>
       <% end %>
       <%= link_to new_content_path do %>
         <%= icon('fas', 'plus-square') %>
