@@ -25,8 +25,8 @@ class CommentsController < ApplicationController
     @content = @comment.content
     @comment.destroy
     respond_to do |format|
-        format.html { redirect_to content_path(@content) }
-        format.js # <-- will render `app/views/reviews/create.js.erb`
+      format.js
+      format.html { redirect_to root_path }
     end
     authorize @comment
   end

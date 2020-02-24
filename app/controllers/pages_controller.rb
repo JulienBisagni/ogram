@@ -21,7 +21,7 @@ class PagesController < ApplicationController
     @last_comment = Comment.last
     respond_to do |format|
       format.html { render 'home' }
-      format.js # <-- idem
+      format.js
     end
   end
 end
