@@ -11,10 +11,10 @@
   <div class="modal__body" id="comments">
     <% content.comments.each do |comment|%>
       <% if comment %>
-        <div class="comment">
+        <div class="comment" id="comment-<%= comment.id %>">
           <div class="comment__author">
             <div>Posted by <%= User.find(comment.user_id).email %></div>
-            <%= link_to comment_path(comment), method: 'delete' do %>
+            <%= link_to comment_path(comment), method: 'delete', remote: true do %>
               <div class="comment__delete">&times;</div>
              <% end %>
           </div>
