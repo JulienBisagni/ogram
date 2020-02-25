@@ -7,13 +7,14 @@ class CommentsController < ApplicationController
 
     authorize @comment
     if @comment.save
+
       respond_to do |format|
         format.html { redirect_to content_path(@content) }
-        format.js # <-- will render `app/views/reviews/create.js.erb`
+        format.js
       end
     else
       respond_to do |format|
-        format.html { render 'contents/show' }
+        format.html { render 'shared/commentForm', content: @content, comment: @comment }
         format.js
       end
     end
