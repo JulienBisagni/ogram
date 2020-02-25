@@ -19,3 +19,6 @@ swipePost();
 searchBar();
 submitComment();
 deleteComment();
+
+window.swipePost = swipePost;
+window.modal = modal;
