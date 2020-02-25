@@ -1,11 +1,16 @@
-<div class="comment">
+<div class="comment" id="comment-<%= comment.id %>">
   <div class="comment__author">
-    Posted by <%= comment.user.email %>
+    <div>Posted by <%= User.find(comment.user_id).email %></div>
+    <%= link_to comment_path(comment), method: 'delete', remote: true do %>
+      <div class="comment__delete">&times;</div>
+     <% end %>
   </div>
   <div class="comment__description">
     <%= comment.description %>
   </div>
-</div>
-<div class="comment__more" data-modal-target="#modal" id="<%= comment.id %>">
-  See more answers (<%= comment.content.comments.count %>)
+  <% unless hide_counter %>
+  <div class="comment__more" data-modal-target="#modal" id="<%= comment.id %>">
+    See more answers (<%= comment.content.comments.count %>)
+  </div>
+  <% end %>
 </div>

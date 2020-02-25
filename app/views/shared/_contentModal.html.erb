@@ -9,19 +9,9 @@
     <%= render 'shared/commentForm', content: content, comment: @comment %>
   </div>
   <div class="modal__body" id="comments">
-    <% content.comments.each do |comment|%>
+    <% content.comments.order(created_at: :desc).each do |comment|%>
       <% if comment %>
-        <div class="comment" id="comment-<%= comment.id %>">
-          <div class="comment__author">
-            <div>Posted by <%= User.find(comment.user_id).email %></div>
-            <%= link_to comment_path(comment), method: 'delete', remote: true do %>
-              <div class="comment__delete">&times;</div>
-             <% end %>
-          </div>
-          <div class="comment__description">
-            <%= comment.description %>
-          </div>
-        </div>
+        <%= render "shared/comment", comment: comment, hide_counter: true %>
       <% end%>
     <% end%>
   </div>

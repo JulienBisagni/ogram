@@ -12,7 +12,7 @@
       </div>
       <% if content.comments.last %>
         <div class="content__text__comment" id="last-comment-wrapper-<%= content.id %>">
-          <%= render 'shared/comment', comment: content.comments.last %>
+          <%= render 'shared/comment', comment: content.comments.last, hide_counter: false %>
         </div>
       <% end %>
     </div>
