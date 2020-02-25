@@ -2,3 +2,6 @@ $('#comments').prepend("<%= j render 'shared/comment', comment: @comment, hide_c
 $('#comment_description').val('');
 
 document.querySelector("#last-comment-wrapper-<%= @comment.content.id %>").innerHTML = "<%= j render 'shared/comment', comment: @comment, hide_counter: false %>";
+
+swipePost();
+modal();
