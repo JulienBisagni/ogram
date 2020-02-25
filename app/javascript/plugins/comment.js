@@ -9,5 +9,17 @@ const submitComment = () => {
     });
   });
 };
+const deleteComment = () => {
+  const comments = document.querySelectorAll(".comment");
+  comments.forEach(comment => {
+    const deleteBtn = comment.querySelector(".comment__delete");
+    if (deleteBtn) {
+      deleteBtn.addEventListener('touchstart', () => {
+        console.log(deleteBtn);
+        deleteBtn.click();
+      });
+    }
+  });
+};
 
-export { submitComment };
+export { submitComment, deleteComment };

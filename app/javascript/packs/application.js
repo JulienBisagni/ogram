@@ -8,7 +8,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 import { modal } from '../plugins/modal.js'
 import { swipePost } from '../plugins/swipePost';
 import { searchBar } from '../plugins/searchBar';
-import { submitComment } from '../plugins/comment';
+import { submitComment, deleteComment } from '../plugins/comment';
 
 window.$ = $;
 
@@ -18,3 +18,4 @@ modal();
 swipePost();
 searchBar();
 submitComment();
+deleteComment();
