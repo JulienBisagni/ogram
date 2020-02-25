@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     else
       respond_to do |format|
         format.html { render 'contents/show' }
-        format.js # <-- idem
+        format.js
       end
     end
   end
