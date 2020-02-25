@@ -13,14 +13,6 @@ class ContentsController < ApplicationController
       "
       @contents = @contents.where(sql_query, query: "%#{params[:query]}%")
     end
-
-    # @markers = @contents.map do |content|
-    #   {
-    #     lat: content.latitude,
-    #     lng: content.longitude,
-    #     infoWindow: render_to_string(partial: "info_window", locals: { content: content })
-    #   }
-    # end
   end
 
   def show
