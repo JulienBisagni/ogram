@@ -11,5 +11,10 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
   resources :comments, only: :destroy
+
+  resources :comment_votes, only: [:create] do
+    patch "upvote", on: :collection
+    patch "downvote", on: :collection
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
