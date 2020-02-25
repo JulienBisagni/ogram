@@ -8,9 +8,9 @@
   <div class="comment__description">
     <%= comment.description %>
   </div>
-  <% unless hide_counter %>
-  <div class="comment__more" data-modal-target="#modal" id="<%= comment.id %>">
-    See more answers (<%= comment.content.comments.count %>)
-  </div>
-  <% end %>
 </div>
+<% unless hide_counter %>
+<div class="comment__more" data-modal-target="#modal" id="<%= comment.id %>">
+  See more answers (<%= comment.content.comments.count %>)
+</div>
+<% end %>
